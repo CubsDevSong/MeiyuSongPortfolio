@@ -1,0 +1,38 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI companion robots research map</title>
+  <desc id="desc">A calm research-board style visual showing loneliness, trust, care, and social connection around an AI companion robot study.</desc>
+  <rect width="1280" height="800" fill="#F7F4EF"/>
+  <rect x="78" y="70" width="1124" height="660" rx="18" fill="#FFFFFF" stroke="#E5E1DA" stroke-width="2"/>
+  <rect x="128" y="122" width="250" height="118" rx="10" fill="#EEF2EB" stroke="#D8C7A3"/>
+  <text x="158" y="170" fill="#2F4F4F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Research aim</text>
+  <text x="158" y="205" fill="#5F6B75" font-family="Inter, Arial, sans-serif" font-size="18">Emotional experience</text>
+  <rect x="128" y="280" width="250" height="118" rx="10" fill="#FFFFFF" stroke="#D8C7A3"/>
+  <text x="158" y="328" fill="#2F4F4F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Methods</text>
+  <text x="158" y="363" fill="#5F6B75" font-family="Inter, Arial, sans-serif" font-size="18">Interview + scenario</text>
+  <rect x="128" y="438" width="250" height="118" rx="10" fill="#FFFFFF" stroke="#D8C7A3"/>
+  <text x="158" y="486" fill="#2F4F4F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Ethics</text>
+  <text x="158" y="521" fill="#5F6B75" font-family="Inter, Arial, sans-serif" font-size="18">Care, agency, privacy</text>
+  <circle cx="690" cy="360" r="136" fill="#F6F2E9" stroke="#6F8F72" stroke-width="3"/>
+  <rect x="630" y="248" width="120" height="168" rx="58" fill="#FFFFFF" stroke="#2F4F4F" stroke-width="4"/>
+  <circle cx="666" cy="312" r="10" fill="#2F4F4F"/>
+  <circle cx="714" cy="312" r="10" fill="#2F4F4F"/>
+  <path d="M660 360C676 374 704 374 720 360" stroke="#6F8F72" stroke-width="6" stroke-linecap="round"/>
+  <rect x="646" y="424" width="88" height="38" rx="19" fill="#2F4F4F"/>
+  <text x="642" y="554" text-anchor="middle" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">AI companion</text>
+  <text x="642" y="588" text-anchor="middle" fill="#5F6B75" font-family="Inter, Arial, sans-serif" font-size="18">trust, loneliness, connection</text>
+  <path d="M378 181H520C560 181 590 210 604 240" stroke="#D8C7A3" stroke-width="3" stroke-dasharray="8 10"/>
+  <path d="M378 339H520C560 339 592 350 610 360" stroke="#D8C7A3" stroke-width="3" stroke-dasharray="8 10"/>
+  <path d="M378 497H520C560 497 590 466 604 438" stroke="#D8C7A3" stroke-width="3" stroke-dasharray="8 10"/>
+  <rect x="846" y="156" width="270" height="70" rx="35" fill="#2F4F4F"/>
+  <text x="981" y="199" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Loneliness</text>
+  <rect x="878" y="278" width="270" height="70" rx="35" fill="#6F8F72"/>
+  <text x="1013" y="321" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Social connection</text>
+  <rect x="846" y="400" width="270" height="70" rx="35" fill="#D8C7A3"/>
+  <text x="981" y="443" text-anchor="middle" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Trust</text>
+  <rect x="878" y="522" width="270" height="70" rx="35" fill="#F0ECE3" stroke="#D8C7A3"/>
+  <text x="1013" y="565" text-anchor="middle" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Ethical care</text>
+  <path d="M780 240C822 220 836 198 846 191" stroke="#6F8F72" stroke-width="3"/>
+  <path d="M814 332C844 320 860 316 878 313" stroke="#6F8F72" stroke-width="3"/>
+  <path d="M814 405C844 416 860 426 846 435" stroke="#6F8F72" stroke-width="3"/>
+  <path d="M780 480C822 510 848 542 878 557" stroke="#6F8F72" stroke-width="3"/>
+</svg>

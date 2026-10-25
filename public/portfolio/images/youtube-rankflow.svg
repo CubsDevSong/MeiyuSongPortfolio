@@ -1,0 +1,39 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">YouTube search ranking visibility study</title>
+  <desc id="desc">A rankflow-style digital methods visual showing search ranking movement, a stable visible core, and algorithmic visibility analysis.</desc>
+  <rect width="1280" height="800" fill="#F7F4EF"/>
+  <rect x="84" y="76" width="1112" height="648" rx="18" fill="#FFFFFF" stroke="#E5E1DA" stroke-width="2"/>
+  <text x="132" y="144" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800">Algorithmic visibility</text>
+  <text x="132" y="184" fill="#5F6B75" font-family="Inter, Arial, sans-serif" font-size="18">YouTube search ranking around AI companions and loneliness</text>
+  <line x1="188" y1="250" x2="188" y2="604" stroke="#E5E1DA" stroke-width="2"/>
+  <line x1="430" y1="250" x2="430" y2="604" stroke="#E5E1DA" stroke-width="2"/>
+  <line x1="672" y1="250" x2="672" y2="604" stroke="#E5E1DA" stroke-width="2"/>
+  <line x1="914" y1="250" x2="914" y2="604" stroke="#E5E1DA" stroke-width="2"/>
+  <line x1="1078" y1="250" x2="1078" y2="604" stroke="#E5E1DA" stroke-width="2"/>
+  <text x="168" y="230" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="16">Day 1</text>
+  <text x="410" y="230" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="16">Day 2</text>
+  <text x="652" y="230" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="16">Day 3</text>
+  <text x="894" y="230" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="16">Day 4</text>
+  <text x="1048" y="230" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="16">Rank</text>
+  <path d="M188 292C302 292 316 296 430 296C544 296 558 292 672 292C786 292 800 296 914 296C990 296 1020 292 1078 292" stroke="#2F4F4F" stroke-width="8" stroke-linecap="round"/>
+  <path d="M188 358C302 374 316 382 430 370C544 358 558 350 672 356C786 362 800 378 914 388C990 394 1020 382 1078 372" stroke="#6F8F72" stroke-width="8" stroke-linecap="round"/>
+  <path d="M188 454C302 428 316 420 430 438C544 456 558 500 672 486C786 472 800 444 914 458C990 468 1020 508 1078 520" stroke="#D8C7A3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M188 548C302 520 316 580 430 560C544 540 558 522 672 548C786 574 800 536 914 526C990 520 1020 558 1078 582" stroke="#9CA3AF" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="188" cy="292" r="13" fill="#2F4F4F"/>
+  <circle cx="430" cy="296" r="13" fill="#2F4F4F"/>
+  <circle cx="672" cy="292" r="13" fill="#2F4F4F"/>
+  <circle cx="914" cy="296" r="13" fill="#2F4F4F"/>
+  <circle cx="188" cy="358" r="13" fill="#6F8F72"/>
+  <circle cx="430" cy="370" r="13" fill="#6F8F72"/>
+  <circle cx="672" cy="356" r="13" fill="#6F8F72"/>
+  <circle cx="914" cy="388" r="13" fill="#6F8F72"/>
+  <rect x="132" y="632" width="252" height="42" rx="21" fill="#EEF2EB"/>
+  <circle cx="160" cy="653" r="8" fill="#2F4F4F"/>
+  <text x="178" y="660" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Stable visible core</text>
+  <rect x="414" y="632" width="260" height="42" rx="21" fill="#EEF2EB"/>
+  <circle cx="442" cy="653" r="8" fill="#6F8F72"/>
+  <text x="460" y="660" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Lower-rank fluctuation</text>
+  <rect x="704" y="632" width="308" height="42" rx="21" fill="#F6F2E9"/>
+  <circle cx="732" cy="653" r="8" fill="#D8C7A3"/>
+  <text x="750" y="660" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Platform observability</text>
+</svg>
