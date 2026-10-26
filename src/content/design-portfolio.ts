@@ -48,17 +48,72 @@ export const designPortfolio = {
     fullProject: "Read the full project",
     imageCaption: "Creative Key Ecosystem / team concept visual",
     gallery: [
-      "Co-creating the service journey with my team",
-      "Translating the journey into tangible Creative Keys",
-      "Refining the physical–digital interaction",
+      "The physical–digital handoff",
+      "My hands-on prototyping process",
+      "Building the physical proof of concept",
     ],
-    galleryRoleLabel: "My participation",
-    galleryRoles: [
-      "Team synthesis",
-      "Experience prototyping",
-      "Interaction detailing",
+    galleryDetailLabel: "Project detail",
+    galleryDetails: [
+      {
+        title: "The physical–digital handoff",
+        intro:
+          "The Creative Key connects a public moment of discovery with a private next step students can save and revisit.",
+        sections: [
+          {
+            label: "Purpose",
+            text: "Give each student a tangible reminder of their chosen creative goal, recommended space and next action.",
+          },
+          {
+            label: "Design decision",
+            text: "The key supports the journey without pretending to be an access pass or confirmed booking.",
+          },
+          {
+            label: "My contribution",
+            text: "I helped translate research findings into the service journey, clarify the information hierarchy and communicate the handoff across touchpoints.",
+          },
+        ],
+      },
+      {
+        title: "My hands-on prototyping process",
+        intro:
+          "I turned the service journey into physical Creative Key variants so the team could compare how the idea felt in a real interaction.",
+        sections: [
+          {
+            label: "What I made",
+            text: "I wrote, arranged and refined the content on multiple key cards, connecting each creative goal to a clear next step.",
+          },
+          {
+            label: "What I tested",
+            text: "I explored wording, scan prompts, visual hierarchy and the amount of information students could understand at a glance.",
+          },
+          {
+            label: "Why it mattered",
+            text: "Making the concept tangible helped us identify unclear instructions early, before investing in higher-fidelity production.",
+          },
+        ],
+      },
+      {
+        title: "Building the physical proof of concept",
+        intro:
+          "The cardboard kiosk brought the complete service sequence into one testable object: discover, choose, print and continue on mobile.",
+        sections: [
+          {
+            label: "Prototype scope",
+            text: "A tablet interface, printed Creative Key and scan-to-mobile step were assembled into a single end-to-end experience.",
+          },
+          {
+            label: "What we learned",
+            text: "The prototype exposed practical questions about visibility, reach, privacy and where staff guidance should remain part of the service.",
+          },
+          {
+            label: "My contribution",
+            text: "I supported the interaction flow, content refinement, prototype storytelling and presentation of the final concept.",
+          },
+        ],
+      },
     ],
-    galleryHint: "Open image",
+    galleryHint: "Open project detail",
+    closeGallery: "Close project detail",
     methodLabel: "02 / Design approach",
     methodTitle: "Listen closely.\nDesign with purpose.",
     methodIntro:
@@ -168,13 +223,72 @@ export const designPortfolio = {
     fullProject: "阅读完整项目",
     imageCaption: "Creative Key Ecosystem / 团队概念视觉",
     gallery: [
-      "与团队共同梳理服务旅程",
-      "把服务旅程转化为可触摸的 Creative Key",
-      "细化实体与数字交互细节",
+      "连接实体与数字体验",
+      "我的原型制作过程",
+      "搭建实体概念验证原型",
     ],
-    galleryRoleLabel: "我的参与",
-    galleryRoles: ["团队共创", "体验原型制作", "交互细化"],
-    galleryHint: "查看图片",
+    galleryDetailLabel: "项目细节",
+    galleryDetails: [
+      {
+        title: "连接实体与数字体验",
+        intro:
+          "Creative Key 把公共空间中的探索，连接到一个可以保存、稍后继续的私密行动步骤。",
+        sections: [
+          {
+            label: "设计目的",
+            text: "让学生带走所选的创作目标、推荐空间与下一步行动，形成一份可触摸的旅程提示。",
+          },
+          {
+            label: "关键决策",
+            text: "Creative Key 负责引导旅程，但不会被误解为门禁凭证或已经确认的预约。",
+          },
+          {
+            label: "我的参与",
+            text: "我把研究发现转化为服务旅程，梳理信息层级，并协助说明不同触点之间如何完成交接。",
+          },
+        ],
+      },
+      {
+        title: "我的原型制作过程",
+        intro:
+          "我把服务旅程制作成多种实体 Creative Key，让团队能够比较它们在真实交互中的感受。",
+        sections: [
+          {
+            label: "我制作的内容",
+            text: "我撰写、排列并细化多张 Key 卡片的内容，把不同创作目标连接到清晰的下一步。",
+          },
+          {
+            label: "我测试的重点",
+            text: "我探索了文案表达、扫码提示、视觉层级，以及学生能否快速理解卡片上的信息。",
+          },
+          {
+            label: "带来的价值",
+            text: "在高保真制作前把概念变得可触摸，帮助我们更早发现不清晰的指引并及时调整。",
+          },
+        ],
+      },
+      {
+        title: "搭建实体概念验证原型",
+        intro:
+          "纸板终端把完整服务流程放进一个可测试的物体中：发现、选择、打印，再到移动端继续。",
+        sections: [
+          {
+            label: "原型范围",
+            text: "我们将平板界面、打印出的 Creative Key 和扫码进入移动端的步骤连接为端到端体验。",
+          },
+          {
+            label: "获得的发现",
+            text: "原型让我们看见了可见性、触达范围、隐私，以及哪些环节仍需要工作人员引导等实际问题。",
+          },
+          {
+            label: "我的参与",
+            text: "我参与交互流程、内容细化、原型叙事，以及最终概念的展示与沟通。",
+          },
+        ],
+      },
+    ],
+    galleryHint: "打开项目细节",
+    closeGallery: "关闭项目细节",
     methodLabel: "02 / 设计方法",
     methodTitle: "认真倾听，\n有依据地设计。",
     methodIntro: "设计的功夫，在于连接人的真实需求与体验实际运作的方式。",

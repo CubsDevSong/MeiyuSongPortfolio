@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -17,10 +17,10 @@ import styles from "./design-portfolio.module.css";
 
 const sectionIds = ["projects", "approach", "creator", "about"];
 const imageRoot = "/portfolio/images/creative-key";
-const participationGallery = [
-  "team-co-creation",
-  "meiyu-making-keys",
-  "meiyu-refining-key",
+const projectGallery = [
+  { file: "handoff.webp", width: 1264, height: 848 },
+  { file: "meiyu-making-keys.jpg", width: 1800, height: 1344 },
+  { file: "prototype.webp", width: 901, height: 1600 },
 ];
 
 export function DesignPortfolioPage({
@@ -33,7 +33,40 @@ export function DesignPortfolioPage({
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">(
     "idle",
   );
+  const [activeGallery, setActiveGallery] = useState<number | null>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
+  const galleryButtons = useRef<Array<HTMLButtonElement | null>>([]);
+  const galleryClose = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (activeGallery === null) return;
+
+    const galleryIndex = activeGallery;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    galleryClose.current?.focus();
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setActiveGallery(null);
+        galleryButtons.current[galleryIndex]?.focus();
+      }
+    }
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [activeGallery]);
+
+  function closeGallery() {
+    const previousGallery = activeGallery;
+    setActiveGallery(null);
+    if (previousGallery !== null) {
+      requestAnimationFrame(() => galleryButtons.current[previousGallery]?.focus());
+    }
+  }
 
   async function copyHandle() {
     try {
@@ -265,29 +298,27 @@ export function DesignPortfolioPage({
             ))}
           </div>
           <div className={styles.projectGallery}>
-            {participationGallery.map((file, i) => (
-              <figure key={file}>
-                <a
-                  href={`${imageRoot}/${file}.jpg`}
-                  target="_blank"
-                  rel="noreferrer"
+            {projectGallery.map((image, i) => (
+              <figure key={image.file}>
+                <button
+                  ref={(node) => {
+                    galleryButtons.current[i] = node;
+                  }}
+                  type="button"
+                  onClick={() => setActiveGallery(i)}
                   aria-label={`${copy.galleryHint}: ${copy.gallery[i]}`}
                 >
                   <Image
-                    src={`${imageRoot}/${file}.jpg`}
+                    src={`${imageRoot}/${image.file}`}
                     alt={copy.gallery[i]}
-                    width={1800}
-                    height={1345}
-                    sizes="(max-width: 700px) 90vw, (max-width: 1100px) 55vw, 58vw"
+                    width={image.width}
+                    height={image.height}
+                    sizes="(max-width: 700px) 90vw, 33vw"
                   />
-                  <div className={styles.galleryRole}>
-                    <span>{copy.galleryRoleLabel}</span>
-                    <strong>{copy.galleryRoles[i]}</strong>
-                  </div>
                   <span className={styles.galleryArrow}>
                     <ArrowUpRight size={20} aria-hidden="true" />
                   </span>
-                </a>
+                </button>
                 <figcaption>
                   <span className={styles.eyebrow}>0{i + 1}</span>
                   {copy.gallery[i]}
@@ -295,6 +326,60 @@ export function DesignPortfolioPage({
               </figure>
             ))}
           </div>
+          {activeGallery !== null && (
+            <div
+              className={styles.galleryDialogBackdrop}
+              role="presentation"
+              onMouseDown={(event) => {
+                if (event.currentTarget === event.target) closeGallery();
+              }}
+            >
+              <section
+                className={styles.galleryDialog}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="gallery-dialog-title"
+              >
+                <button
+                  ref={galleryClose}
+                  type="button"
+                  className={styles.galleryDialogClose}
+                  onClick={closeGallery}
+                  aria-label={copy.closeGallery}
+                >
+                  <X size={20} aria-hidden="true" />
+                </button>
+                <div className={styles.galleryDialogImage}>
+                  <Image
+                    src={`${imageRoot}/${projectGallery[activeGallery].file}`}
+                    alt={copy.gallery[activeGallery]}
+                    width={projectGallery[activeGallery].width}
+                    height={projectGallery[activeGallery].height}
+                    sizes="(max-width: 700px) 92vw, 52vw"
+                  />
+                </div>
+                <div className={styles.galleryDialogContent}>
+                  <p className={styles.eyebrow}>
+                    0{activeGallery + 1} / {copy.galleryDetailLabel}
+                  </p>
+                  <h3 id="gallery-dialog-title">
+                    {copy.galleryDetails[activeGallery].title}
+                  </h3>
+                  <p className={styles.galleryDialogIntro}>
+                    {copy.galleryDetails[activeGallery].intro}
+                  </p>
+                  <div className={styles.galleryDialogSections}>
+                    {copy.galleryDetails[activeGallery].sections.map((section) => (
+                      <div key={section.label}>
+                        <h4>{section.label}</h4>
+                        <p>{section.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
         </section>
         <section
           id="approach"
