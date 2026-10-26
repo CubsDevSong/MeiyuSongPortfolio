@@ -17,6 +17,11 @@ import styles from "./design-portfolio.module.css";
 
 const sectionIds = ["projects", "approach", "creator", "about"];
 const imageRoot = "/portfolio/images/creative-key";
+const participationGallery = [
+  "team-co-creation",
+  "meiyu-making-keys",
+  "meiyu-refining-key",
+];
 
 export function DesignPortfolioPage({
   content,
@@ -260,22 +265,26 @@ export function DesignPortfolioPage({
             ))}
           </div>
           <div className={styles.projectGallery}>
-            {["handoff", "testing", "prototype"].map((file, i) => (
+            {participationGallery.map((file, i) => (
               <figure key={file}>
                 <a
-                  href={`${imageRoot}/${file}.webp`}
+                  href={`${imageRoot}/${file}.jpg`}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`${copy.galleryHint}: ${copy.gallery[i]}`}
                 >
                   <Image
-                    src={`${imageRoot}/${file}.webp`}
+                    src={`${imageRoot}/${file}.jpg`}
                     alt={copy.gallery[i]}
-                    width={1000}
-                    height={1000}
-                    sizes="(max-width: 700px) 90vw, 33vw"
+                    width={1800}
+                    height={1345}
+                    sizes="(max-width: 700px) 90vw, (max-width: 1100px) 55vw, 58vw"
                   />
-                  <span>
+                  <div className={styles.galleryRole}>
+                    <span>{copy.galleryRoleLabel}</span>
+                    <strong>{copy.galleryRoles[i]}</strong>
+                  </div>
+                  <span className={styles.galleryArrow}>
                     <ArrowUpRight size={20} aria-hidden="true" />
                   </span>
                 </a>
