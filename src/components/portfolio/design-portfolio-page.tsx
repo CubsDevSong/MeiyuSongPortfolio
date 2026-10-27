@@ -15,12 +15,29 @@ import type { FocusedPortfolioContent } from "@/content/focused-portfolio";
 import { creativeKeySource, designPortfolio } from "@/content/design-portfolio";
 import styles from "./design-portfolio.module.css";
 
-const sectionIds = ["projects", "approach", "creator", "about"];
+const sectionIds = ["projects", "approach", "proof", "about"];
 const imageRoot = "/portfolio/images/creative-key";
 const projectGallery = [
   { file: "handoff.webp", width: 1264, height: 848 },
   { file: "meiyu-making-keys.jpg", width: 1800, height: 1344 },
   { file: "prototype.webp", width: 901, height: 1600 },
+];
+const contentCaseImages = [
+  {
+    src: "/portfolio/images/creator/rednote-question.jpg",
+    width: 1206,
+    height: 2622,
+  },
+  {
+    src: "/portfolio/images/creator/rednote-offer.jpg",
+    width: 1206,
+    height: 2622,
+  },
+  {
+    src: "/portfolio/images/creator/douyin-work-life.jpg",
+    width: 1206,
+    height: 2622,
+  },
 ];
 
 export function DesignPortfolioPage({
@@ -46,17 +63,20 @@ export function DesignPortfolioPage({
     document.body.style.overflow = "hidden";
     galleryClose.current?.focus();
 
-    function closeOnEscape(event: KeyboardEvent) {
+    function handleGalleryKeyboard(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setActiveGallery(null);
         galleryButtons.current[galleryIndex]?.focus();
+      } else if (event.key === "Tab") {
+        event.preventDefault();
+        galleryClose.current?.focus();
       }
     }
 
-    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("keydown", handleGalleryKeyboard);
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("keydown", handleGalleryKeyboard);
     };
   }, [activeGallery]);
 
@@ -70,7 +90,7 @@ export function DesignPortfolioPage({
 
   async function copyHandle() {
     try {
-      await navigator.clipboard.writeText("Richgirl998.");
+      await navigator.clipboard.writeText("Richgirl998");
       setCopyState("copied");
     } catch {
       setCopyState("failed");
@@ -179,12 +199,20 @@ export function DesignPortfolioPage({
           </h1>
           <div className={styles.introBottom}>
             <p>{copy.intro}</p>
-            <a href="#projects" className={styles.scrollLink}>
-              <span className={styles.eyebrow}>{copy.selected}</span>
-              <span className={styles.circle}>
-                <ArrowDown size={20} aria-hidden="true" />
-              </span>
-            </a>
+            <div className={styles.introActions}>
+              <a href="#projects" className={styles.darkButton}>
+                {copy.selected}
+                <ArrowDown size={17} aria-hidden="true" />
+              </a>
+              <a
+                href="/portfolio/docs/meiyu-song-cv.pdf"
+                className={styles.secondaryButton}
+                download
+              >
+                {copy.downloadCv}
+                <ArrowDown size={17} aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </section>
         <section
@@ -286,6 +314,17 @@ export function DesignPortfolioPage({
             <div>
               <h3>{copy.contribution}</h3>
               <p>{copy.contributionText}</p>
+            </div>
+          </div>
+          <div className={styles.researchEvidence}>
+            <p className={styles.eyebrow}>{copy.researchEvidenceLabel}</p>
+            <div>
+              {copy.researchEvidence.map((item) => (
+                <article key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </article>
+              ))}
             </div>
           </div>
           <div className={styles.touchpoints}>
@@ -427,13 +466,22 @@ export function DesignPortfolioPage({
                 <p className={styles.eyebrow}>{copy.moreTypes[i]}</p>
                 <h3>{copy.moreNames[i]}</h3>
                 <p>{project.description}</p>
+                <div className={styles.projectTags}>
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <div className={styles.projectOutcome}>
+                  <span className={styles.eyebrow}>{copy.projectOutcome}</span>
+                  <p>{project.outcome}</p>
+                </div>
                 <details>
                   <summary>
                     {copy.moreDetail}
                     <Plus size={18} aria-hidden="true" />
                   </summary>
                   <div className={styles.projectNotes}>
-                    {(["problem", "process", "outcome"] as const).map((key) => (
+                    {(["problem", "process"] as const).map((key) => (
                       <div key={key}>
                         <h4>{content.labels[key]}</h4>
                         <p>{project[key]}</p>
@@ -464,6 +512,32 @@ export function DesignPortfolioPage({
                     </div>
                   </div>
                 </details>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section
+          id="proof"
+          className={styles.proof}
+          aria-labelledby="proof-title"
+        >
+          <p className={styles.eyebrow}>{copy.proofLabel}</p>
+          <div className={styles.sectionHeading}>
+            <h2 id="proof-title" className={styles.sectionTitle}>
+              {copy.proofTitle}
+            </h2>
+            <p>{copy.proofIntro}</p>
+          </div>
+          <div className={styles.proofGrid}>
+            {copy.proofs.map((proof, i) => (
+              <article className={styles.proofCard} key={proof.title}>
+                <div className={styles.proofTop}>
+                  <span className={styles.number}>0{i + 1}</span>
+                  <strong>{proof.value}</strong>
+                </div>
+                <h3>{proof.title}</h3>
+                <p>{proof.text}</p>
+                <span className={styles.eyebrow}>{proof.skill}</span>
               </article>
             ))}
           </div>
@@ -511,37 +585,10 @@ export function DesignPortfolioPage({
                     : ""}
               </p>
             </div>
-            <div className={styles.socialVisuals}>
-              <figure className={styles.profilePhone}>
-                <Image
-                  src="/portfolio/images/creator/douyin-profile.webp"
-                  alt={
-                    content.locale === "zh"
-                      ? "抖音主页截图，显示 7301 粉丝与 14.6 万获赞"
-                      : "Douyin profile screenshot showing 7,301 followers and 146K profile likes"
-                  }
-                  width={850}
-                  height={798}
-                  sizes="(max-width: 700px) 52vw, 23vw"
-                />
-              </figure>
-              <figure className={styles.videoPhone}>
-                <Image
-                  src="/portfolio/images/creator/douyin-video.webp"
-                  alt={
-                    content.locale === "zh"
-                      ? "关于海外生活的代表视频截图"
-                      : "Screenshot of a featured video about life abroad"
-                  }
-                  width={850}
-                  height={1529}
-                  sizes="(max-width: 700px) 45vw, 21vw"
-                />
-                <figcaption>
-                  <span>1.25M</span>
-                  {copy.stats[0]}
-                </figcaption>
-              </figure>
+            <div className={styles.creatorSummary}>
+              <strong>1.25M</strong>
+              <p>{copy.stats[0]}</p>
+              <span>{copy.snapshot}</span>
             </div>
           </div>
           <div className={styles.socialStats}>
@@ -552,24 +599,32 @@ export function DesignPortfolioPage({
               </div>
             ))}
           </div>
-          <p className={styles.snapshot}>{copy.snapshot}</p>
-          <div className={styles.rednote}>
-            <div>
-              <p className={styles.eyebrow}>{copy.rednote}</p>
-              <h3>{copy.rednoteName}</h3>
-              <p>{copy.rednoteDetail}</p>
-            </div>
-            <Image
-              src="/portfolio/images/creator/rednote-profile.webp"
-              alt={
-                content.locale === "zh"
-                  ? "Annie在远方的小红书公开主页资料"
-                  : "Public profile details for Annie在远方 on Rednote"
-              }
-              width={850}
-              height={586}
-              sizes="(max-width: 700px) 100vw, 320px"
-            />
+          <div className={styles.creatorChannels}>
+            <p>
+              <span className={styles.eyebrow}>{copy.rednote}</span>
+              <strong>{copy.rednoteName}</strong>
+              <span>{copy.rednoteDetail}</span>
+            </p>
+          </div>
+          <div className={styles.contentCaseGrid}>
+            {contentCaseImages.map((image, i) => (
+              <figure className={styles.contentCase} key={image.src}>
+                <div className={styles.contentCaseImage}>
+                  <Image
+                    src={image.src}
+                    alt={copy.contentCases[i].title}
+                    width={image.width}
+                    height={image.height}
+                    sizes="(max-width: 700px) 88vw, 30vw"
+                  />
+                </div>
+                <figcaption>
+                  <strong>{copy.contentCases[i].metric}</strong>
+                  <h3>{copy.contentCases[i].title}</h3>
+                  <p>{copy.contentCases[i].text}</p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

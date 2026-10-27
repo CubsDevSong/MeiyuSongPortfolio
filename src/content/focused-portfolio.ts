@@ -168,9 +168,9 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     locale: "en",
     htmlLang: "en",
     metadata: {
-      title: "Meiyu Song | Product & Experience Designer",
+      title: "Meiyu Song | Product & UX Designer",
       description:
-        "Product and experience design by Meiyu Song. Explore Creative Key Ecosystem, a research-led HCI project connecting physical and digital experiences, alongside UX design and visual storytelling.",
+        "Product and UX portfolio by Meiyu Song, combining user research, product thinking, business understanding and human-centred interaction design.",
     },
     name: "Meiyu Song",
     languageSwitchLabel: "Language",
@@ -183,11 +183,11 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
       { label: "Contact", href: "#contact" },
     ],
     hero: {
-      eyebrow: "Human-Centred UX Designer based in Dublin",
+      eyebrow: "Product & UX Designer based in Dublin",
       headline:
-        "Designing clear, ethical, and human digital experiences through UX research, storytelling, and HCI.",
+        "Understanding people and turning complex problems into clear, useful product experiences.",
       summary:
-        "I combine HCI research, storytelling, and design to make complex services easier to understand, more trustworthy, and more emotionally aware.",
+        "I combine user research, product thinking, commercial awareness and interaction design to make digital services easier to understand and more valuable to use.",
       availability:
         "Currently open to UX Designer, Product Designer, and UX Research opportunities in Ireland.",
       primaryCta: "View Work",
@@ -445,6 +445,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         summary:
           "Provided study-abroad consultation, education planning, service matching, customer relationship management, and education event operations.",
         highlights: [
+          "Generated RMB 2.59M in cumulative signed sales during the Sep 2023–Aug 2024 reporting period and became a monthly sales champion within four months of joining.",
           "Identified user needs through one-to-one consultations and matched students with suitable education services, tutors, and learning pathways.",
           "Managed customer relationships across the full service journey from initial consultation to conversion, follow-up, referral, and repeat purchase.",
           "Planned and hosted large-scale education branding events, including an overseas study fan meeting.",
@@ -465,7 +466,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         summary:
           "Designed and delivered interactive science education, public engagement, school outreach, and family learning programmes.",
         highlights: [
-          "Delivered over 500 interactive science education sessions for children, families, and school groups.",
+          "Planned and delivered interactive science programmes for children, families, and school groups, from activity design and materials preparation to facilitation and post-event reflection.",
           "Designed experiential learning programmes using science experiments, storytelling, performance, and hands-on activities.",
           "Wrote promotional articles and supported content publication across official websites, WeChat, Douyin, and local media channels.",
         ],
@@ -499,12 +500,12 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     ],
     education: [
       {
-        degree: "MSc Human-Computer Interaction",
+        degree: "MSc Human-Computer Interaction · 2H1",
         institution: "University College Dublin",
         location: "Dublin, Ireland",
-        dates: "2025 - Present",
+        dates: "Aug 2025 - Aug 2026",
         summary:
-          "Postgraduate training in UX design, user research, interaction design, digital methods, human-centred design, AI ethics, and HCI practice.",
+          "Completed with Second Class Honours, Grade 1 (2H1). Postgraduate training in UX design, user research, interaction design, digital methods, human-centred design, AI ethics, and HCI practice.",
         focus: [
           "UX design and user research",
           "Interaction design and HCI practice",
@@ -635,9 +636,9 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     locale: "zh",
     htmlLang: "zh-CN",
     metadata: {
-      title: "宋美玉 | 产品与体验设计师",
+      title: "宋美玉 | 产品与 UX 设计师",
       description:
-        "宋美玉的产品与体验设计作品集。探索连接实体与数字体验的 Creative Key Ecosystem，以及用户研究、交互设计和视觉叙事作品。",
+        "宋美玉的产品与 UX 设计作品集，结合用户研究、产品思维、商业理解与以人为本的交互设计。",
     },
     name: "宋美玉",
     languageSwitchLabel: "语言",
@@ -650,11 +651,11 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
       { label: "联系", href: "#contact" },
     ],
     hero: {
-      eyebrow: "常驻都柏林的人本 UX 设计师",
+      eyebrow: "常驻都柏林的产品与 UX 设计师",
       headline:
-        "以用户研究、叙事与 HCI，设计清晰、可信、有温度的数字体验。",
+        "理解真实的人，把复杂问题转化为清晰、实用的产品体验。",
       summary:
-        "我结合 HCI 研究、叙事能力与设计方法，让复杂服务更易理解、更值得信任，也更能回应人的情感需求。",
+        "我结合用户研究、产品思维、商业理解与交互设计，让数字服务更容易理解，也更有使用价值。",
       availability:
         "目前开放爱尔兰 UX Designer、Product Designer 和 UX Research 相关机会。",
       primaryCta: "查看作品",
@@ -903,6 +904,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         summary:
           "提供留学咨询、教育规划、服务匹配、客户关系管理和教育活动运营支持。",
         highlights: [
+          "在 2023 年 9 月至 2024 年 8 月统计周期内，实现 259 万元累计签约业绩，并在入职四个月内成为月度销冠。",
           "通过一对一咨询识别用户需求，并为学生匹配合适的教育服务、导师和学习路径。",
           "管理从初次咨询到转化、跟进、转介绍和复购的完整客户旅程。",
           "策划并主持大型教育品牌活动，包括海外学习粉丝见面会。",
@@ -918,7 +920,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         summary:
           "设计并开展互动科学教育、公共参与、学校外展和家庭学习活动。",
         highlights: [
-          "为儿童、家庭和学校团体开展 500 余场互动科学教育课程。",
+          "面向儿童、家庭和学校团体策划并开展互动科学项目，覆盖活动设计、材料准备、现场引导与活动复盘。",
           "结合科学实验、叙事、表演和动手活动，设计体验式学习项目。",
           "撰写宣传文章，并支持官方网站、微信、抖音和本地媒体等渠道的内容发布。",
         ],
@@ -942,12 +944,12 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     ],
     education: [
       {
-        degree: "人机交互理学硕士",
+        degree: "人机交互理学硕士 · 二等一荣誉学位（2H1）",
         institution: "都柏林大学",
         location: "爱尔兰都柏林",
-        dates: "2025 年至今",
+        dates: "2025 年 8 月 - 2026 年 8 月",
         summary:
-          "研究生阶段训练涵盖 UX 设计、用户研究、交互设计、数字方法、人本设计、AI 伦理与 HCI 实践。",
+          "已完成硕士学位，获得二等一荣誉学位（Second Class Honours, Grade 1）。课程训练涵盖 UX 设计、用户研究、交互设计、数字方法、人本设计、AI 伦理与 HCI 实践。",
         focus: [
           "UX 设计与用户研究",
           "交互设计与 HCI 实践",
