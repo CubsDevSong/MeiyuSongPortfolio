@@ -1,0 +1,242 @@
+.chartCard {
+  margin: 0;
+  padding: clamp(22px, 3vw, 38px);
+  border: 1px solid #d9dde3;
+  border-radius: 16px;
+  background: #fbfcfe;
+  box-shadow: 0 24px 70px rgb(22 38 64 / 7%);
+  color: #172033;
+}
+.chartHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+.kicker {
+  margin: 0 0 8px;
+  color: #607089;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.chartHeader h3 {
+  margin: 0;
+  font-size: clamp(27px, 3.5vw, 43px);
+  font-weight: 540;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+.chartHeader p:not(.kicker) {
+  margin: 8px 0 0;
+  color: #657086;
+  font-size: 12px;
+}
+.dataStatus {
+  flex-shrink: 0;
+  padding: 7px 11px;
+  border: 1px solid #cddcf1;
+  border-radius: 999px;
+  color: #2d65aa;
+  font-size: 9px;
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 30px 0 12px;
+  overflow: hidden;
+  border: 1px solid #e2e5ea;
+  border-radius: 10px;
+  background: #e2e5ea;
+}
+.kpis > div {
+  min-width: 0;
+  padding: 16px 18px;
+  background: white;
+}
+.kpis span,
+.kpis small {
+  display: block;
+  color: #697489;
+  font-size: 9px;
+  line-height: 1.45;
+}
+.kpis strong {
+  display: block;
+  margin: 8px 0 2px;
+  font-size: clamp(20px, 2.7vw, 32px);
+  font-weight: 540;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.chartScroller {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+.chart {
+  display: block;
+  width: 100%;
+  min-width: 720px;
+  height: auto;
+  overflow: visible;
+}
+.gridLine line {
+  stroke: #dfe4eb;
+  stroke-width: 1;
+}
+.gridLine text,
+.monthLabel,
+.averageLabel {
+  fill: #667287;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 10px;
+}
+.averageLine {
+  stroke: #58a0e7;
+  stroke-width: 1.5;
+  stroke-dasharray: 7 7;
+}
+.averageLabel {
+  fill: #2776c8;
+  font-size: 10px;
+  font-weight: 620;
+}
+.area {
+  pointer-events: none;
+}
+.line {
+  fill: none;
+  stroke: #1768ca;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.point {
+  fill: #1768ca;
+  stroke: white;
+  stroke-width: 3;
+  pointer-events: none;
+  transition: r 160ms ease;
+}
+.peakPoint {
+  fill: #0c4d9d;
+}
+.activePoint {
+  r: 8px;
+}
+.hitArea {
+  fill: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.hitArea:focus-visible {
+  fill: rgb(23 104 202 / 12%);
+  stroke: #1768ca;
+  stroke-width: 2;
+}
+.tooltip rect {
+  fill: #132b50;
+  filter: drop-shadow(0 8px 12px rgb(19 43 80 / 18%));
+}
+.tooltip text {
+  fill: white;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+.tooltipMonth {
+  font-size: 10px;
+  opacity: 0.78;
+}
+.tooltipValue {
+  font-size: 13px;
+  font-weight: 650;
+}
+.caption {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 18px;
+  border-top: 1px solid #e1e5eb;
+}
+.caption p {
+  max-width: 560px;
+  margin: 0;
+  color: #354157;
+  font-size: 12px;
+}
+.caption span {
+  max-width: 300px;
+  color: #7b8495;
+  font-size: 8px;
+  text-align: right;
+}
+.srTable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 700px) {
+  .chartCard {
+    border-radius: 12px;
+  }
+  .chartHeader,
+  .caption {
+    flex-direction: column;
+  }
+  .dataStatus {
+    align-self: flex-start;
+  }
+  .chart {
+    min-width: 620px;
+  }
+  .optionalMonth {
+    display: none;
+  }
+  .gridLine text,
+  .monthLabel,
+  .averageLabel {
+    font-size: 13px;
+  }
+  .averageLabel {
+    display: none;
+  }
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+  .kpis > div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px 18px;
+  }
+  .kpis strong {
+    margin: 0;
+    text-align: right;
+  }
+  .kpis small {
+    grid-column: 2;
+    text-align: right;
+  }
+  .caption {
+    gap: 9px;
+  }
+  .caption span {
+    text-align: left;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .point {
+    transition: none;
+  }
+}
+
