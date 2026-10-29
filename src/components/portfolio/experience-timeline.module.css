@@ -23,8 +23,8 @@
 .description { margin-top: 17px !important; font-size: 17px; line-height: 1.75; color: var(--portfolio-muted); max-width: 790px; }
 .skills { display: flex; flex-wrap: wrap; gap: 7px 15px; padding: 0; margin: 18px 0 0; list-style: none; }
 .skills li { font-size: 12px; line-height: 1.7; color: var(--portfolio-accent); }
-.journey .skills, .journey .monthlyRecords { padding-left: 0; }
-.journey .skills li + li, .journey .monthlyRecords li + li { margin-top: 0; }
+.journey .skills { padding-left: 0; }
+.journey .skills li + li { margin-top: 0; }
 .designAchievement { padding-top: 4px; }
 .designValue { display: flex; align-items: baseline; gap: 13px; font-size: 55px; font-weight: 500; line-height: 1; letter-spacing: -.06em; }
 .designValue span { font-size: 16px; letter-spacing: -.02em; line-height: 1.4; max-width: 140px; }
@@ -57,17 +57,6 @@
 .foundation .entryBody { grid-template-columns: 1fr; }
 .foundation .content h3 { font-size: clamp(24px, 2.2vw, 31px); max-width: 790px; }
 .foundationHighlight { font-size: 18px; font-weight: 500; color: var(--portfolio-navy); margin-top: 15px !important; }
-.exactSales { display: flex; flex-wrap: wrap; gap: 25px 60px; padding: 8px 0 22px; }
-.exactSales > div { display: flex; flex-direction: column; gap: 7px; }
-.exactSales span { font-size: 12px; color: var(--portfolio-muted); }
-.exactSales strong { font-size: 25px; font-weight: 500; letter-spacing: -.025em; }
-.exactSales small { font-size: 12px; color: var(--portfolio-muted); }
-.monthlyRecords { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; gap: 0 20px; }
-.monthlyRecords li { display: flex; flex-direction: column; gap: 7px; padding: 13px 0; border-top: 1px solid var(--portfolio-line); }
-.monthlyRecords li > span { color: var(--portfolio-muted); font-size: 12px; }
-.monthlyRecords strong { font-weight: 500; font-size: 16px; }
-.source { margin-top: 18px !important; font-size: 12px; color: var(--portfolio-muted); line-height: 1.8; }
-.source a { display: inline-flex; align-items: center; gap: 5px; color: var(--portfolio-accent); border-bottom: 1px solid var(--portfolio-line); }
 .entry[data-revealed="true"] .entryBody { animation: entryReveal .4s ease-out both; }
 @keyframes entryReveal { from { opacity: .75; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 1100px) {
@@ -119,8 +108,6 @@
   .currencyNote { font-size: 11px; }
   .foundation .content h3 { font-size: 25px; }
   .foundationHighlight { font-size: 17px; }
-  .monthlyRecords { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 15px; }
-  .exactSales { flex-direction: column; gap: 20px; }
   .sciencePhoto { height: 180px; }
 }
 @media (prefers-reduced-motion: reduce) {

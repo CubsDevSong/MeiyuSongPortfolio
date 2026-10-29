@@ -45,24 +45,6 @@ function SalesAchievement({ locale }: { locale: Locale }) {
   )
 }
 
-function SalesDetails({ locale }: { locale: Locale }) {
-  const copy = experienceTimelineCopy[locale]
-  const formatter = new Intl.NumberFormat(locale === "zh" ? "zh-CN" : "en-IE")
-  const currency = (value: number) => `¥${formatter.format(value)}`
-  return (
-    <div className={styles.salesDetails}>
-      <div className={styles.exactSales}>
-        <div><span>{copy.total}</span><strong>{currency(afySalesSummary.total)}</strong><small>{copy.salesPeriod}</small></div>
-        <div><span>{copy.peak}</span><strong>{currency(afySalesSummary.peak.value)}</strong><small>{locale === "zh" ? afySalesSummary.peak.monthZh : afySalesSummary.peak.month}</small></div>
-      </div>
-      <ul className={styles.monthlyRecords} aria-label={copy.monthly}>
-        {afyMonthlySales.map(point => <li key={point.month}><span>{locale === "zh" ? point.monthZh : point.month}</span><strong>{currency(point.value)}</strong></li>)}
-      </ul>
-      <p className={styles.source}>{copy.source} {copy.rate}: 1 EUR = {salesFxReference.cnyPerEur} CNY · 27 Oct 2026. <a href={salesFxReference.url} target="_blank" rel="noreferrer">{salesFxReference.source}<ArrowUpRight size={13} aria-hidden="true" /></a></p>
-    </div>
-  )
-}
-
 export function ExperienceTimeline({ locale }: { locale: Locale }) {
   const copy = experienceTimelineCopy[locale]
   const entries = getExperienceEntries(locale)
@@ -136,14 +118,13 @@ export function ExperienceTimeline({ locale }: { locale: Locale }) {
                   <p className={styles.description}>{entry.description}</p>
                   {index > 1 && <p className={styles.foundationHighlight}>{entry.achievement}</p>}
                   <ul className={styles.skills}>{entry.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
-                  <details className={styles.details}>
-                    <summary>{entry.key === "afy" ? copy.salesDetails : copy.details}<ChevronDown size={17} aria-hidden="true" /></summary>
+                  {entry.key !== "afy" && <details className={styles.details}>
+                    <summary>{copy.details}<ChevronDown size={17} aria-hidden="true" /></summary>
                     <div className={styles.expanded}>
                       {entry.details.map(detail => <p key={detail}>{detail}</p>)}
-                      {entry.key === "afy" && <SalesDetails locale={locale} />}
                       {entry.key === "museum" && <Image className={styles.sciencePhoto} src="/portfolio/images/journey/science-stage.jpg" alt={copy.photo} width={1800} height={1012} sizes="(max-width: 760px) 85vw, 600px" />}
                     </div>
-                  </details>
+                  </details>}
                 </div>
                 {entry.key === "jianglan" && <aside className={styles.designAchievement}>
                   <p className={styles.designValue}>7<span>{copy.pages}</span></p>
