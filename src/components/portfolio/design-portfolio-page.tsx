@@ -2,17 +2,17 @@
 
 import Image from "next/image"
 import { useRef, useState } from "react"
-import { ArrowDown, ArrowUpRight, Menu, Plus, X } from "lucide-react"
+import { ArrowUpRight, Menu, Plus, X } from "lucide-react"
 import type { FocusedPortfolioContent } from "@/content/focused-portfolio"
 import { designPortfolio } from "@/content/design-portfolio"
 import { portfolioV2 } from "@/content/portfolio-v2"
+import { interactivePortfolio } from "@/content/interactive-portfolio"
 import {
-  AboutSnapshot,
-  AILiteracySection,
   EducationSummary,
-  PortfolioCompetencies,
   ProfessionalJourney,
 } from "./portfolio-v2-sections"
+import { HeroIntroduction, DesignProcessSection } from "./scroll-story"
+import { InteractiveProjects } from "./interactive-projects"
 import styles from "./design-portfolio.module.css"
 
 const imageRoot = "/portfolio/images/creative-key"
@@ -20,6 +20,7 @@ const imageRoot = "/portfolio/images/creative-key"
 export function DesignPortfolioPage({ content }: { content: FocusedPortfolioContent }) {
   const copy = designPortfolio[content.locale]
   const v2 = portfolioV2[content.locale]
+  const story = interactivePortfolio[content.locale]
   const [menuOpen, setMenuOpen] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
 
@@ -40,7 +41,7 @@ export function DesignPortfolioPage({ content }: { content: FocusedPortfolioCont
           <span>MEIYU SONG</span>
         </a>
         <nav className={styles.desktopNav} aria-label={content.locale === "zh" ? "主导航" : "Main navigation"}>
-          {v2.nav.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+          {story.nav.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
         <div className={styles.headerActions}>
           <div className={styles.languages} aria-label={content.languageSwitchLabel}>
@@ -62,7 +63,7 @@ export function DesignPortfolioPage({ content }: { content: FocusedPortfolioCont
         </div>
         {menuOpen && (
           <nav id="mobile-navigation" className={styles.mobileNav} aria-label={copy.menu}>
-            {v2.nav.map((item) => (
+            {story.nav.map((item) => (
               <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}<ArrowUpRight size={20} aria-hidden="true" /></a>
             ))}
             <a href="#contact" onClick={() => setMenuOpen(false)}>{copy.hello}<ArrowUpRight size={20} aria-hidden="true" /></a>
@@ -70,33 +71,22 @@ export function DesignPortfolioPage({ content }: { content: FocusedPortfolioCont
         )}
       </header>
 
-      <div id="content" className={styles.container}>
-        <section className={styles.intro} aria-labelledby="intro-title">
-          <div className={styles.introTop}>
-            <p className={styles.eyebrow}>{copy.role}</p>
-            <p className={styles.availability}><span />{copy.available}</p>
-          </div>
-          <h1 id="intro-title">{copy.headline[0]}<br /><span>{copy.headline[1]}</span></h1>
-          <div className={styles.introBottom}>
-            <p>{copy.intro}</p>
-            <div className={styles.introActions}>
-              <a href="#projects" className={styles.darkButton}>{copy.selected}<ArrowDown size={17} aria-hidden="true" /></a>
-              <a href="/portfolio/docs/meiyu-song-cv.pdf" className={styles.secondaryButton} download>{copy.downloadCv}<ArrowDown size={17} aria-hidden="true" /></a>
-            </div>
-          </div>
+      <div id="content">
+        <HeroIntroduction locale={content.locale} cvLabel={copy.downloadCv} />
+        <DesignProcessSection locale={content.locale} />
+        <div className={styles.container}>
+        <section id="projects" aria-labelledby="work-title" className={styles.workIntro}>
+          <p className={styles.eyebrow}>{story.work.label}</p>
+          <div><h2 id="work-title">{story.work.title}</h2><p>{story.work.intro}</p></div>
         </section>
-
-        <AboutSnapshot content={content} />
-        <PortfolioCompetencies locale={content.locale} />
-
-        <section id="projects" aria-labelledby="featured-title" className={styles.feature}>
+        <section aria-labelledby="featured-title" className={styles.feature}>
           <div className={styles.featureText}>
-            <p className={styles.eyebrow}><span className={styles.redDot} />{copy.featured}</p>
+            <p className={styles.eyebrow}><span className={styles.redDot} />{story.work.featured}</p>
             <div>
               <p className={styles.partner}>{copy.partner}</p>
               <h2 id="featured-title">Creative<br />Key<span className={styles.redPeriod}>.</span></h2>
-              <p className={styles.featureSub}>{copy.projectSub}</p>
-              <p className={styles.featureSummary}>{copy.projectSummary}</p>
+              <p className={styles.featureSub}>{story.work.headline}</p>
+              <p className={styles.featureSummary}>{story.work.description}</p>
             </div>
             <div>
               <div className={styles.tags}>{copy.projectTags.map((tag) => <span key={tag}>{tag}</span>)}</div>
@@ -112,7 +102,6 @@ export function DesignPortfolioPage({ content }: { content: FocusedPortfolioCont
                 width={1536}
                 height={1024}
                 sizes="(max-width: 700px) 100vw, 55vw"
-                priority
                 className={styles.ecosystem}
               />
             </div>
@@ -122,49 +111,22 @@ export function DesignPortfolioPage({ content }: { content: FocusedPortfolioCont
               width={462}
               height={900}
               sizes="(max-width: 700px) 45vw, 24vw"
-              priority
               className={styles.mobileCompanion}
             />
             <p className={styles.imageCaption}>{copy.imageCaption}</p>
           </div>
         </section>
         <div className={styles.featureFoot}><span>{copy.prototype}</span><span>RESEARCH / PRODUCT / SERVICE</span></div>
-
-        <section className={styles.moreWork} aria-labelledby="more-title">
-          <p className={styles.eyebrow}>{copy.moreLabel}</p>
-          <h2 id="more-title" className={styles.sectionTitle}>{copy.moreTitle}</h2>
-          <div className={styles.projectCards}>
-            {content.projects.map((project, index) => (
-              <article className={styles.projectCard} key={project.subtitle}>
-                <div className={styles.projectImage}>
-                  <Image src={project.image} alt={project.alt} width={900} height={650} sizes="(max-width: 700px) 90vw, 33vw" />
-                </div>
-                <p className={styles.eyebrow}>{copy.moreTypes[index]}</p>
-                <h3>{copy.moreNames[index]}</h3>
-                <p>{project.description}</p>
-                <div className={styles.projectTags}>{project.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>
-                <div className={styles.projectOutcome}><span className={styles.eyebrow}>{copy.projectOutcome}</span><p>{project.outcome}</p></div>
-                <details>
-                  <summary>{copy.moreDetail}<Plus size={18} aria-hidden="true" /></summary>
-                  <div className={styles.projectNotes}>
-                    {(["problem", "process"] as const).map((key) => <div key={key}><h4>{content.labels[key]}</h4><p>{project[key]}</p></div>)}
-                    {project.details?.map((detail) => <div key={detail.title}><h4>{detail.title}</h4><ul>{detail.items.map((item) => <li key={item}>{item}</li>)}</ul></div>)}
-                    <div className={styles.projectLinks}>
-                      {project.links.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}<ArrowUpRight size={14} aria-hidden="true" /></a>)}
-                    </div>
-                  </div>
-                </details>
-              </article>
-            ))}
-          </div>
+        <div className={styles.researchStrip} aria-label={story.work.researchLabel}><span>{story.work.researchLabel}</span>{story.work.research.map(item => <span key={item}>{item}</span>)}</div>
+        <InteractiveProjects content={content} />
+        <section id="background" className={styles.background} aria-labelledby="journey-title">
+          <ProfessionalJourney locale={content.locale} />
+          <details>
+            <summary>{content.locale === "zh" ? "教育与专业训练" : "Education & training"}<Plus size={20} aria-hidden="true" /></summary>
+            <EducationSummary content={content} />
+          </details>
         </section>
-      </div>
-
-      <AILiteracySection locale={content.locale} />
-
-      <div className={styles.container}>
-        <ProfessionalJourney locale={content.locale} />
-        <EducationSummary content={content} />
+        </div>
       </div>
 
       <footer id="contact" className={styles.footer}>

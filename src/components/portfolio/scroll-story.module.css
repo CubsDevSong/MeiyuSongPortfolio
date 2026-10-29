@@ -1,0 +1,218 @@
+.hero {
+  --portrait-progress: 1;
+  --identity-progress: 1;
+  --motto-progress: 1;
+  --value-progress: 1;
+  position: relative;
+  background: var(--portfolio-ivory);
+}
+.heroScene { position: relative; min-height: 800px; height: calc(100svh - 80px); max-height: 1100px; }
+.hero[data-motion="scroll"] { height: 180svh; }
+.hero:focus-within { --portrait-progress: 1 !important; --identity-progress: 1 !important; --motto-progress: 1 !important; --value-progress: 1 !important; }
+.hero[data-motion="scroll"] .heroScene { position: sticky; top: 80px; min-height: 680px; }
+.heroMeta { position: absolute; inset: 28px 4% auto; display: flex; justify-content: space-between; gap: 16px; font-family: var(--font-geist-mono), monospace; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--portfolio-muted); }
+.portrait { position: absolute; left: calc(50% - var(--portrait-progress) * 24%); top: 50%; width: min(40vw, 490px); transform: translate(-50%, -50%) scale(calc(1 - var(--portrait-progress) * .07)); }
+.portraitFrame { position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 50%; background: var(--portfolio-peach); border: 1px solid #efc3b6; box-shadow: 0 0 0 14px #fff0e9; }
+.portrait img { display: block; position: relative; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.portrait figcaption { margin-top: 23px; text-align: center; font: 11px var(--font-geist-mono), monospace; letter-spacing: .09em; color: var(--portfolio-muted); }
+.identity { position: absolute; width: 44%; left: 51%; top: 12%; opacity: var(--identity-progress); transform: translateY(calc((1 - var(--identity-progress)) * 28px)); }
+.identityKicker { font: 13px var(--font-geist-mono), monospace; color: var(--portfolio-accent); margin-bottom: 16px !important; }
+.identity h1 { font-size: clamp(54px, 6vw, 94px); letter-spacing: -.07em; font-weight: 500; line-height: 1.02; }
+.identity h1:lang(zh) { font-size: clamp(38px, 5.3vw, 78px); }
+.role { margin-top: 20px !important; font-size: clamp(17px, 1.5vw, 22px); }
+.philosophy { margin-top: clamp(26px, 4vh, 50px); }
+.philosophy h2 { font-size: clamp(26px, 3.1vw, 48px); font-weight: 450; line-height: 1.1; letter-spacing: -.045em; }
+.philosophy h2 span { display: block; opacity: var(--motto-progress); transform: translateY(calc((1 - var(--motto-progress)) * 15px)); }
+.philosophy h2 span + span { color: var(--portfolio-accent); opacity: var(--value-progress); transform: translateY(calc((1 - var(--value-progress)) * 15px)); }
+.philosophy > p { margin-top: 22px !important; max-width: 560px; font-size: 18px; line-height: 1.7; opacity: var(--value-progress); }
+.philosophy > .support { margin-top: 12px !important; font-size: 16px; color: var(--portfolio-muted); }
+.heroActions { display: flex; gap: 25px; margin-top: 25px; flex-wrap: wrap; }
+.heroActions a { display: flex; align-items: center; gap: 18px; min-height: 48px; font-size: 15px; border-bottom: 1px solid var(--portfolio-accent); }
+.heroActions a:first-child { background: var(--portfolio-coral); border: 0; border-radius: 999px; padding: 0 22px; color: var(--portfolio-navy); }
+.scrollCue { display: flex; gap: 16px; align-items: center; position: absolute; bottom: 24px; left: 4%; font: 12px var(--font-geist-mono), monospace; }
+.scrollCue svg { padding: 8px; box-sizing: content-box !important; border: 1px solid var(--portfolio-line); border-radius: 50%; }
+.heroEdition { display: flex; gap: 16px; align-items: center; min-height: 44px; position: absolute; right: 4%; bottom: 18px; font: 13px var(--font-geist-mono), monospace; color: var(--portfolio-accent); }
+.process { position: relative; background: var(--portfolio-surface); color: var(--portfolio-navy); --rotation: 0deg; --complete: 0; --stage-0: 1; --stage-1: 0; --stage-2: 0; --stage-3: 0; --stage-4: 0; }
+.process[data-motion="scroll"] { height: 400svh; }
+.processScene { position: relative; min-height: 810px; height: calc(100svh - 80px); display: flex; flex-direction: column; }
+.process[data-motion="scroll"] .processScene { position: sticky; top: 80px; min-height: 720px; }
+.processHeader { display: flex; justify-content: space-between; align-items: end; gap: 45px; padding: 30px 5% 0; position: relative; z-index: 2; }
+.label { font: 12px var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .08em; color: var(--portfolio-accent); }
+.processHeader h2 { font-size: clamp(32px, 3.6vw, 54px); line-height: 1.04; font-weight: 450; letter-spacing: -.055em; white-space: pre-line; margin-top: 14px !important; }
+.processHeader > div:last-child { width: 44%; max-width: 540px; }
+.processSubtitle { font-size: 16px; margin-bottom: 10px !important; }
+.processIntro { font-size: 16px; line-height: 1.7; color: var(--portfolio-muted); }
+.processComposition { position: relative; flex: 1; min-height: 470px; }
+.wheelViewport { position: absolute; inset: 0 auto 0 0; width: calc(50% + var(--complete) * 50%); overflow: clip; }
+.wheelAssembly { position: absolute; top: 50%; left: calc(18% + var(--complete) * 32%); width: min(70vw, 860px); aspect-ratio: 1; transform: translate(-50%, -50%) scale(calc(1 - var(--complete) * .42)); }
+.wheelRotation { position: absolute; inset: 0; transform: rotate(var(--rotation)); will-change: transform; }
+.wheel { width: 100%; height: 100%; overflow: visible; color: #ab786d; }
+.wheelSegment { opacity: .48; transition: opacity .3s; }
+.wheelSegment[data-active="true"] { opacity: 1; }
+.wheelWord { transform: rotate(calc(var(--rotation) * -1)); }
+.wheelWord text { font: 19px var(--font-geist-sans), sans-serif; font-weight: 500; fill: var(--portfolio-navy); }
+.wheelWord .wheelNumber { font: 13px var(--font-geist-mono), monospace; }
+.wheelCentre { position: absolute; inset: 33%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 16px; opacity: calc(1 - var(--complete) * 2); color: var(--portfolio-accent); }
+.wheelCentre span { white-space: pre-line; font-size: clamp(18px, 1.8vw, 25px); line-height: 1.3; letter-spacing: -.03em; }
+.wheelCentre small { font: 12px var(--font-geist-mono), monospace; letter-spacing: .1em; }
+.stageCopy { position: absolute; inset: 0 5% 0 54%; display: grid; align-items: center; opacity: calc(1 - var(--complete) * 2); }
+.stage { grid-area: 1 / 1; padding: 24px 0; }
+.stage[data-stage="0"] { opacity: var(--stage-0); }
+.stage[data-stage="1"] { opacity: var(--stage-1); }
+.stage[data-stage="2"] { opacity: var(--stage-2); }
+.stage[data-stage="3"] { opacity: var(--stage-3); }
+.stage[data-stage="4"] { opacity: var(--stage-4); }
+.stageCount { display: flex; align-items: center; gap: 12px; font: 14px var(--font-geist-mono), monospace; letter-spacing: .03em; }
+.stageCount > span { color: var(--portfolio-muted); }
+.stageCount i { width: 11px; height: 11px; border-radius: 50%; margin-left: 12px; }
+.stage h3 { font-size: clamp(27px, 3.1vw, 47px); font-weight: 450; line-height: 1.1; letter-spacing: -.05em; max-width: 520px; margin: 22px 0 18px !important; }
+.question { font-size: 20px; color: var(--portfolio-accent); }
+.stageDescription { font-size: 18px; color: var(--portfolio-muted); line-height: 1.7; max-width: 540px; margin-top: 12px !important; }
+.aiSupport { display: flex; gap: 12px; align-items: start; padding-top: 16px; margin-top: 22px; border-top: 1px solid #dcbeb0; max-width: 540px; }
+.aiSupport > svg { margin-top: 4px; flex-shrink: 0; color: var(--portfolio-accent); }
+.aiSupport p { font-size: 15px; line-height: 1.7; color: var(--portfolio-muted); }
+.aiSupport p > span { display: block; font: 12px var(--font-geist-mono), monospace; color: var(--portfolio-accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+.stage ul { display: flex; list-style: none; flex-wrap: wrap; gap: 7px; padding: 0; margin: 20px 0 0; }
+.stage li { border: 1px solid #dbbfb2; border-radius: 30px; padding: 5px 11px; font-size: 12px; }
+.cycleSummary { position: absolute; width: 100%; text-align: center; top: 50%; transform: translateY(-50%); pointer-events: none; opacity: clamp(0, (var(--complete) - .55) * 3, 1); }
+.cycleSummary h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.15; font-weight: 450; letter-spacing: -.04em; }
+.cycleSummary h3 span { color: var(--portfolio-accent); }
+.cycleSummary > p { font-size: 14px; max-width: 215px; margin: 16px auto 0 !important; line-height: 1.65; color: var(--portfolio-muted); }
+.processNavigation { display: flex; justify-content: center; align-items: center; gap: 26px; position: relative; z-index: 3; padding: 12px 4% 22px; }
+.processNavigation button { display: flex; align-items: center; gap: 9px; min-height: 44px; border: none; border-bottom: 1px solid transparent; background: none; color: var(--portfolio-muted); font-size: 15px !important; }
+.processNavigation button > span { font: 12px var(--font-geist-mono), monospace; }
+.processNavigation [aria-current="step"] { color: var(--portfolio-accent); border-color: var(--portfolio-accent); }
+.processNavigation button:hover { color: var(--portfolio-accent); }
+.processNavigation .cycleButton { justify-content: center; border: 1px solid #d3b4a5; width: 44px; border-radius: 50%; font-size: 24px !important; }
+/* Readable static fallback before animation JS, with reduced motion or a short mobile viewport. */
+.process:not([data-motion="scroll"]) .processScene { height: auto; }
+.process:not([data-motion="scroll"]) .processComposition { min-height: 0; padding: 40px 5%; }
+.process:not([data-motion="scroll"]) .wheelViewport { position: relative; width: 100%; height: 400px; }
+.process:not([data-motion="scroll"]) .wheelAssembly { left: 50%; width: 400px; transform: translate(-50%, -50%); }
+.process:not([data-motion="scroll"]) .stageCopy { position: relative; inset: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 50px; opacity: 1; }
+.process:not([data-motion="scroll"]) .stage { grid-area: auto; opacity: 1; border-top: 1px solid var(--portfolio-line); }
+.process:not([data-motion="scroll"]) .cycleSummary { display: none; }
+@media (min-width: 768px) and (max-height: 800px) {
+  .hero[data-motion="scroll"] .heroScene { min-height: 620px; }
+  .portrait { width: min(34vw, 400px); }
+  .identity { top: 10%; }
+  .identity h1 { font-size: clamp(52px, 5.3vw, 80px); }
+  .philosophy { margin-top: 22px; }
+  .philosophy > p { margin-top: 14px !important; font-size: 17px; }
+  .philosophy > .support { font-size: 15px; }
+  .process[data-motion="scroll"] .processScene { min-height: 650px; }
+  .processComposition { min-height: 430px; }
+  .processHeader { padding-top: 18px; }
+  .processHeader h2 { font-size: 37px; }
+  .processIntro { font-size: 15px; }
+  .processSubtitle { font-size: 14px; }
+  .stage h3 { font-size: 34px; margin: 15px 0 !important; }
+  .stage { padding: 8px 0; }
+  .stageDescription { font-size: 17px; }
+  .aiSupport { margin-top: 15px; padding-top: 12px; }
+  .stage ul { margin-top: 12px; }
+  .processNavigation { padding-bottom: 14px; }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .identity { width: 48%; left: 48%; top: 50%; transform: translateY(calc(-50% + (1 - var(--identity-progress)) * 28px)); }
+  .identity h1 { font-size: 57px; }
+  .heroMeta { font-size: 11px; }
+  .portrait { width: 37vw; }
+  .processHeader { gap: 25px; }
+  .stageCopy { left: 51%; }
+  .processNavigation { gap: 17px; }
+  .processNavigation button { font-size: 13px !important; }
+  .stageDescription { font-size: 17px; }
+  .aiSupport p { font-size: 14px; }
+}
+@media (max-width: 767px) {
+  .hero[data-motion="scroll"] { height: 175svh; }
+  .heroScene, .hero[data-motion="scroll"] .heroScene { height: calc(100svh - 68px); min-height: 775px; top: 68px; max-height: 950px; }
+  .heroMeta { inset: 18px 6% auto; font-size: 10px; }
+  .heroMeta > span:last-child { max-width: 170px; text-align: right; }
+  .portrait { width: min(72vw, 310px); left: 50%; top: 10%; transform: translateX(-50%) translateY(calc(var(--portrait-progress) * -30px)) scale(calc(1 - var(--portrait-progress) * .25)); transform-origin: top center; }
+  .portraitFrame { box-shadow: 0 0 0 8px #fff0e9; }
+  .portrait figcaption { display: none; }
+  .identity { left: 6%; width: 88%; top: 39%; text-align: center; transform: translateY(calc((1 - var(--identity-progress)) * 20px)); }
+  .identityKicker { font-size: 11px; margin-bottom: 10px !important; }
+  .identity h1 { font-size: clamp(39px, 10.8vw, 61px); }
+  .role { font-size: 15px; margin-top: 10px !important; }
+  .philosophy { margin-top: 20px; }
+  .philosophy h2 { font-size: 29px; }
+  .philosophy > p { font-size: 16px; max-width: 390px; margin: 14px auto 0 !important; line-height: 1.6; }
+  .philosophy > .support { font-size: 15px; max-width: 390px; line-height: 1.6; }
+  .heroActions { margin-top: 17px; gap: 22px; justify-content: center; }
+  .heroActions a { font-size: 14px; min-height: 44px; }
+  .heroActions a:first-child { padding: 0 17px; }
+  .scrollCue { font-size: 10px; left: 6%; bottom: 16px; gap: 10px; opacity: calc(1 - var(--identity-progress)); }
+  .heroEdition { font-size: 12px; bottom: 10px; right: 6%; gap: 10px; opacity: calc(1 - var(--identity-progress)); }
+  .hero:not([data-motion="scroll"]) .heroScene { min-height: 900px; }
+  .process[data-motion="scroll"] { height: 370svh; }
+  .processScene, .process[data-motion="scroll"] .processScene { height: calc(100svh - 68px); min-height: 775px; top: 68px; }
+  .processHeader { padding: 22px 6% 0; display: block; }
+  .label { font-size: 11px; }
+  .processHeader h2 { font-size: 33px; margin-top: 9px !important; white-space: pre-line; max-width: none; }
+  .processHeader > div:last-child { width: 100%; margin-top: 12px; }
+  .processSubtitle { font-size: 13px; margin: 0 !important; }
+  .processIntro { display: none; }
+  .processComposition { min-height: 525px; }
+  .wheelViewport { width: 100%; height: calc(155px + var(--complete) * 370px); }
+  .wheelAssembly { width: 340px; left: 50%; top: calc(36px + var(--complete) * 210px); transform: translate(-50%, -50%) scale(calc(.8 + var(--complete) * .13)); }
+  .wheelCentre { gap: 8px; }
+  .wheelCentre span { font-size: 18px; }
+  .wheelCentre small { font-size: 10px; }
+  .wheelCentre svg { width: 16px; }
+  .stageCopy { inset: 175px 6% auto; align-items: start; }
+  .stage { padding: 0; }
+  .stageCount { font-size: 13px; }
+  .stage h3 { font-size: 28px; margin: 13px 0 10px !important; }
+  .question { font-size: 17px; }
+  .stageDescription { font-size: 16px; margin-top: 9px !important; line-height: 1.6; }
+  .aiSupport { margin-top: 14px; padding-top: 12px; }
+  .aiSupport p { font-size: 14px; line-height: 1.55; }
+  .aiSupport p > span { font-size: 11px; }
+  .stage ul { margin-top: 12px; gap: 6px; }
+  .stage li { font-size: 11px; padding: 4px 9px; }
+  .processNavigation { gap: 3px; justify-content: space-between; padding: 9px 5% 18px; }
+  .processNavigation button { font-size: 12px !important; flex-direction: column; gap: 3px; min-width: 43px; }
+  .processNavigation button > span { font-size: 10px; }
+  .processNavigation .cycleButton { min-width: 40px; width: 40px; height: 40px; min-height: 40px; }
+  .cycleSummary { top: 246px; }
+  .cycleSummary h3 { font-size: 20px; }
+  .cycleSummary > p { max-width: 155px; font-size: 12px; }
+  .process:not([data-motion="scroll"]) .stageCopy { grid-template-columns: 1fr; gap: 30px; }
+  .process:not([data-motion="scroll"]) .wheelViewport { height: 330px; }
+  .process:not([data-motion="scroll"]) .wheelAssembly { top: 50%; width: 330px; }
+  .process:not([data-motion="scroll"]) .stage { padding-top: 25px; }
+}
+@media (max-width: 767px) and (max-height: 760px) {
+  .heroScene, .hero[data-motion="scroll"] .heroScene { min-height: 760px; }
+  .portrait { width: min(62vw, 265px); top: 8%; }
+  .identity { top: 34%; }
+  .identity h1 { font-size: 38px; }
+  .philosophy { margin-top: 16px; }
+  .philosophy h2 { font-size: 27px; }
+  .heroActions { margin-top: 14px; }
+  .process[data-motion="scroll"] { height: auto; }
+  .process[data-motion="scroll"] .processScene { position: relative; top: auto; height: auto; min-height: 0; }
+  .process[data-motion="scroll"] .processComposition { min-height: 0; padding: 30px 6%; }
+  .process[data-motion="scroll"] .wheelViewport { position: relative; width: 100%; height: 290px; }
+  .process[data-motion="scroll"] .wheelAssembly { top: 50%; left: 50%; width: 300px; transform: translate(-50%, -50%); }
+  .process[data-motion="scroll"] .wheelRotation, .process[data-motion="scroll"] .wheelWord { transform: none; }
+  .process[data-motion="scroll"] .wheelSegment { opacity: 1; }
+  .process[data-motion="scroll"] .wheelCentre { opacity: 1; }
+  .process[data-motion="scroll"] .stageCopy { position: relative; inset: auto; opacity: 1; display: grid; grid-template-columns: 1fr; gap: 35px; }
+  .process[data-motion="scroll"] .stage { grid-area: auto; opacity: 1; padding-top: 25px; border-top: 1px solid var(--portfolio-line); }
+  .process[data-motion="scroll"] .cycleSummary, .process[data-motion="scroll"] .processNavigation { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait, .identity, .philosophy h2 span { transform: none; }
+  .portrait { transform: translate(-50%, -50%); }
+  .wheelRotation, .wheelWord { transform: none; }
+  .wheelSegment { opacity: 1; transition: none; }
+  .processNavigation { display: none; }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .portrait { top: 7%; width: min(60vw, 260px); transform: translateX(-50%); }
+  .identity { top: 36%; }
+}

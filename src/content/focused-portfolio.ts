@@ -168,9 +168,9 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     locale: "en",
     htmlLang: "en",
     metadata: {
-      title: "Meiyu Song | Product & UX Designer",
+      title: "Meiyu Song | UX/UI Designer · Human-Centred AI",
       description:
-        "Product and UX portfolio by Meiyu Song, combining user research, product thinking, business understanding and human-centred interaction design.",
+        "Understanding people. Creating value. Meiyu Song's UX/UI portfolio connects human-centred research, product thinking and AI-assisted design through real projects.",
     },
     name: "Meiyu Song",
     languageSwitchLabel: "Language",
@@ -636,9 +636,9 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     locale: "zh",
     htmlLang: "zh-CN",
     metadata: {
-      title: "宋美玉 | 产品与 UX 设计师",
+      title: "宋美玉 | UX/UI 设计师 · 以人为本的 AI",
       description:
-        "宋美玉的产品与 UX 设计作品集，结合用户研究、产品思维、商业理解与以人为本的交互设计。",
+        "理解人，创造价值。宋美玉的 UX/UI 作品集，通过真实项目展示人本研究、产品思维与 AI 辅助设计。",
     },
     name: "宋美玉",
     languageSwitchLabel: "语言",

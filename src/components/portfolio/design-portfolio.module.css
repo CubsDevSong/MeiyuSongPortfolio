@@ -1,14 +1,14 @@
 .portfolio {
-  --paper: #fafaf8;
-  --ink: #181818;
-  --quiet: #62625e;
-  --line: #dcdcd6;
-  --signal: #d82d26;
+  --paper: var(--portfolio-ivory);
+  --ink: var(--portfolio-navy);
+  --quiet: var(--portfolio-muted);
+  --line: var(--portfolio-line);
+  --signal: var(--portfolio-accent);
   background: var(--paper);
   color: var(--ink);
   font-family:
     var(--font-geist-sans), "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.65;
 }
 .portfolio *,
@@ -56,9 +56,29 @@
   width: min(1280px, calc(100% - 112px));
   margin: 0 auto;
 }
+.workIntro { padding: 56px 0 44px; }
+.workIntro > div { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-top: 20px; }
+.workIntro h2 { white-space: pre-line; font-size: clamp(40px, 5vw, 72px); font-weight: 450; letter-spacing: -.065em; line-height: 1.05; }
+.workIntro > div > p { max-width: 400px; color: var(--quiet); font-size: 17px; line-height: 1.8; }
+.researchStrip { display: flex; gap: 20px; justify-content: space-between; flex-wrap: wrap; padding: 24px 0; border-bottom: 1px solid var(--line); font: 13px var(--font-geist-mono), monospace; color: var(--portfolio-accent); }
+.researchStrip > span:first-child { color: var(--quiet); }
+.background { padding: 40px 0 70px; border-top: 1px solid var(--line); }
+.background h2 { font-size: clamp(30px, 3.5vw, 49px); font-weight: 450; line-height: 1.15; letter-spacing: -.05em; margin-top: 18px; }
+.background > p:not(:first-child) { max-width: 650px; font-size: 17px; color: var(--quiet); margin-top: 17px; }
+.background > details > summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 17px; padding: 25px 0; margin-top: 25px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+@media (max-width: 767px) {
+  .workIntro { padding: 45px 0 35px; }
+  .workIntro > div { display: block; }
+  .workIntro h2 { font-size: 44px; }
+  .workIntro > div > p { margin-top: 22px; }
+  .researchStrip { gap: 15px; justify-content: start; font-size: 12px; }
+  .researchStrip > span:first-child { width: 100%; }
+  .background { padding-bottom: 45px; }
+  .background h2 { font-size: 34px; }
+}
 .eyebrow {
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.08em;
   line-height: 1.7;
@@ -95,7 +115,7 @@
   display: flex;
   align-items: center;
   gap: 13px;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 650;
   letter-spacing: 0.12em;
   white-space: nowrap;
@@ -113,7 +133,7 @@
 .desktopNav {
   display: flex;
   gap: 32px;
-  font-size: 12px;
+  font-size: 16px;
 }
 .desktopNav a,
 .languages a {
@@ -131,7 +151,7 @@
 .languages {
   display: flex;
   gap: 12px;
-  font-size: 10px;
+  font-size: 13px;
   font-family: var(--font-geist-mono), monospace;
 }
 .languages a {
@@ -150,7 +170,7 @@
   color: white;
   border-radius: 999px;
   padding: 10px 18px;
-  font-size: 12px;
+  font-size: 16px;
   transition: background 0.2s;
 }
 .headerContact:hover {
@@ -179,7 +199,7 @@
   align-items: center;
   gap: 8px;
   color: var(--quiet);
-  font-size: 11px;
+  font-size: 15px;
 }
 .availability > span,
 .redDot {
@@ -228,13 +248,13 @@
   border: 1px solid var(--line);
   border-radius: 30px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: 16px;
   transition:
     border-color 0.2s,
     background 0.2s;
 }
 .secondaryButton:hover {
-  background: #eeeeea;
+  background: var(--portfolio-surface);
   border-color: #c3c3bd;
 }
 .scrollLink {
@@ -262,7 +282,7 @@
   display: grid;
   grid-template-columns: 0.95fr 1.15fr;
   min-height: 640px;
-  background: #eeeeea;
+  background: var(--portfolio-surface);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -281,7 +301,7 @@
   gap: 9px;
 }
 .partner {
-  font-size: 11px;
+  font-size: 15px;
   margin-bottom: 16px !important;
   color: var(--quiet);
 }
@@ -301,10 +321,10 @@
   letter-spacing: -0.025em;
 }
 .featureSummary {
-  max-width: 340px;
+  max-width: 500px;
   color: var(--quiet);
   margin-top: 12px !important;
-  font-size: 13px;
+  font-size: 17px;
   line-height: 1.75;
 }
 .tags {
@@ -315,9 +335,9 @@
 }
 .tags > span {
   padding: 4px 10px;
-  border: 1px solid #cecec7;
+  border: 1px solid var(--portfolio-line);
   border-radius: 30px;
-  font-size: 9px;
+  font-size: 12px;
   white-space: nowrap;
 }
 .darkButton {
@@ -329,7 +349,7 @@
   border-radius: 30px;
   background: var(--ink);
   color: white;
-  font-size: 12px;
+  font-size: 16px;
   transition: background 0.2s;
 }
 .darkButton:hover {
@@ -371,7 +391,7 @@
   right: 28px;
   z-index: 1;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 13px;
   color: #555;
 }
 .imageCaption {
@@ -381,7 +401,7 @@
   left: 22px;
   text-align: right;
   color: #555;
-  font-size: 8px;
+  font-size: 12px;
   font-family: var(--font-geist-mono), monospace;
 }
 .featureFoot {
@@ -390,7 +410,7 @@
   gap: 20px;
   padding: 16px 0;
   color: var(--quiet);
-  font-size: 9px;
+  font-size: 12px;
   font-family: var(--font-geist-mono), monospace;
   border-bottom: 1px solid var(--line);
 }
@@ -415,7 +435,7 @@
   display: inline-flex;
   align-items: center;
   gap: 20px;
-  font-size: 12px;
+  font-size: 16px;
   border-bottom: 1px solid currentColor;
   padding-bottom: 6px;
   flex-shrink: 0;
@@ -432,13 +452,13 @@
   border-bottom: 1px solid var(--line);
 }
 .caseContext h3 {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 12px;
 }
 .caseContext p,
 .touchpoints p {
-  font-size: 13px;
+  font-size: 17px;
   color: var(--quiet);
   line-height: 1.8;
 }
@@ -472,7 +492,7 @@
 .researchEvidence span {
   max-width: 120px;
   color: var(--quiet);
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.45;
 }
 .touchpoints {
@@ -484,7 +504,7 @@
 .number {
   font-family: var(--font-geist-mono), monospace;
   color: var(--signal);
-  font-size: 11px;
+  font-size: 15px;
 }
 .touchpoints h3 {
   font-size: 20px;
@@ -548,7 +568,7 @@
   align-items: baseline;
   gap: 12px;
   margin-top: 14px;
-  font-size: 11px;
+  font-size: 15px;
 }
 .projectGallery figcaption .eyebrow {
   color: var(--quiet);
@@ -613,7 +633,7 @@
 .galleryDialogIntro,
 .galleryDialogSections p {
   color: var(--quiet);
-  font-size: 13px;
+  font-size: 17px;
   line-height: 1.7;
 }
 .galleryDialogIntro {
@@ -629,7 +649,7 @@
 }
 .galleryDialogSections h4 {
   margin-bottom: 6px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
 }
 .approach {
@@ -645,7 +665,7 @@
 .sectionHeading > p {
   max-width: 270px;
   color: var(--quiet);
-  font-size: 13px;
+  font-size: 17px;
 }
 .methods {
   display: grid;
@@ -664,7 +684,7 @@
   justify-content: space-between;
   color: var(--quiet);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
+  font-size: 15px;
 }
 .methods h3 {
   font-size: 23px;
@@ -674,7 +694,7 @@
 }
 .methods p {
   color: var(--quiet);
-  font-size: 13px;
+  font-size: 17px;
   margin-bottom: 28px;
 }
 .methods article > .eyebrow {
@@ -693,7 +713,7 @@
   align-items: start;
 }
 .projectImage {
-  background: #eeeeea;
+  background: var(--portfolio-surface);
   overflow: hidden;
   border-radius: 3px;
   margin-bottom: 24px;
@@ -710,7 +730,7 @@
 }
 .projectCard > .eyebrow {
   color: var(--quiet);
-  font-size: 9px;
+  font-size: 12px;
 }
 .projectCard h3 {
   font-size: 22px;
@@ -719,7 +739,7 @@
   margin: 10px 0 12px;
 }
 .projectCard > p:not(.eyebrow) {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--quiet);
 }
 .projectTags {
@@ -733,23 +753,23 @@
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--quiet);
-  font-size: 9px;
+  font-size: 12px;
 }
 .projectOutcome {
   min-height: 126px;
   margin-top: 20px;
   padding: 18px;
-  background: #eeeeea;
+  background: var(--portfolio-surface);
   border-radius: 3px;
 }
 .projectOutcome .eyebrow {
   color: var(--signal);
-  font-size: 8px;
+  font-size: 12px;
 }
 .projectOutcome p {
   margin-top: 9px !important;
   color: var(--ink);
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.65;
 }
 .projectCard details {
@@ -762,10 +782,10 @@
   align-items: center;
   gap: 12px;
   padding: 16px 0;
-  font-size: 11px;
+  font-size: 15px;
 }
 .projectNotes {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--quiet);
   padding-bottom: 10px;
 }
@@ -839,16 +859,16 @@
 .proofCard > p {
   margin-bottom: 30px;
   color: var(--quiet);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.75;
 }
 .proofCard > .eyebrow {
   margin-top: auto;
   color: var(--quiet);
-  font-size: 8px;
+  font-size: 12px;
 }
 .creator {
-  background: #191919;
+  background: var(--portfolio-navy);
   color: #f5f5ef;
   padding: 80px 0 48px;
   overflow: hidden;
@@ -879,13 +899,13 @@
 .creatorSummary p {
   margin-top: 24px !important;
   color: #e4e4dc;
-  font-size: 13px;
+  font-size: 17px;
 }
 .creatorSummary span {
   margin-top: 8px;
   color: #92928b;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
+  font-size: 12px;
 }
 .creatorText > .eyebrow {
   display: flex;
@@ -898,7 +918,7 @@
   font-size: clamp(34px, 4vw, 56px);
 }
 .creatorIntro {
-  font-size: 13px;
+  font-size: 17px;
   color: #b5b5ad;
   max-width: 390px;
   margin-top: 24px !important;
@@ -916,7 +936,7 @@
 }
 .creatorIdentity .eyebrow {
   color: #b5b5ad;
-  font-size: 9px;
+  font-size: 12px;
 }
 .creatorIdentity h3 {
   font-size: 18px;
@@ -925,7 +945,7 @@
 }
 .handle {
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 13px;
   color: #b5b5ad;
   margin-top: 5px !important;
   user-select: all;
@@ -934,12 +954,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid #555550;
+  border: 1px solid var(--portfolio-muted);
   border-radius: 30px;
   background: transparent;
   color: white;
   padding: 10px 17px;
-  font-size: 11px !important;
+  font-size: 15px !important;
   transition: background 0.2s;
 }
 .copyButton:hover {
@@ -947,7 +967,7 @@
 }
 .copyFeedback {
   min-height: 22px;
-  font-size: 10px;
+  font-size: 13px;
   color: #c5c5bc;
   margin-top: 8px !important;
 }
@@ -996,7 +1016,7 @@
   padding: 40px 15px 15px;
   background: linear-gradient(transparent, #000);
   color: white;
-  font-size: 9px;
+  font-size: 12px;
 }
 .videoPhone figcaption > span {
   display: block;
@@ -1023,12 +1043,12 @@
   line-height: 1.1;
 }
 .socialStats span {
-  font-size: 11px;
+  font-size: 15px;
   color: #b5b5ad;
 }
 .snapshot {
   color: #aaa99f;
-  font-size: 9px;
+  font-size: 12px;
   margin-top: 24px !important;
 }
 .creatorChannels {
@@ -1047,11 +1067,11 @@
   color: #aaa99f;
 }
 .creatorChannels strong {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
 }
 .creatorChannels > p > span:last-child {
-  font-size: 10px;
+  font-size: 13px;
 }
 .contentCaseGrid {
   display: grid;
@@ -1085,7 +1105,7 @@
 .contentCase figcaption strong {
   color: #ef675f;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1098,7 +1118,7 @@
 }
 .contentCase figcaption p {
   color: #aaa99f;
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.7;
 }
 .rednote {
@@ -1112,7 +1132,7 @@
 }
 .rednote .eyebrow {
   color: #b5b5ad;
-  font-size: 9px;
+  font-size: 12px;
 }
 .rednote h3 {
   font-weight: 500;
@@ -1121,7 +1141,7 @@
 }
 .rednote p:not(.eyebrow) {
   color: #b5b5ad;
-  font-size: 11px;
+  font-size: 15px;
 }
 .rednote img {
   width: 320px;
@@ -1148,13 +1168,13 @@
 .aboutVisual p {
   color: var(--quiet);
   margin-top: 14px;
-  font-size: 9px;
+  font-size: 12px;
 }
 .aboutText h2 {
   margin-top: 25px;
 }
 .aboutText > p:not(.eyebrow) {
-  font-size: 14px;
+  font-size: 18px;
   color: var(--quiet);
   max-width: 410px;
   margin: 25px 0;
@@ -1184,40 +1204,40 @@
   flex-direction: column;
 }
 .backgroundItem strong {
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 1.5;
 }
 .backgroundItem summary span span {
   color: var(--quiet);
-  font-size: 11px;
+  font-size: 15px;
   margin-top: 6px;
 }
 .backgroundItem > p,
 .backgroundItem ul {
   color: var(--quiet);
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 18px;
 }
 .backgroundItem > .eyebrow {
-  font-size: 9px;
+  font-size: 12px;
 }
 .educationItem {
   border-top: 1px solid var(--line);
   padding: 20px 0;
 }
 .educationItem h4 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
 }
 .educationItem p {
   color: var(--quiet);
-  font-size: 12px;
+  font-size: 16px;
   margin: 5px 0 10px;
 }
 .educationItem .eyebrow {
   color: var(--quiet);
-  font-size: 9px;
+  font-size: 12px;
 }
 .awards {
   border-top: 1px solid var(--line);
@@ -1228,15 +1248,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 16px;
   gap: 20px;
 }
 .awards ul {
   color: var(--quiet);
-  font-size: 12px;
+  font-size: 16px;
 }
 .footer {
-  background: #eaeae5;
+  background: var(--portfolio-peach);
   padding: 65px 0 24px;
 }
 .footerHeading {
@@ -1259,8 +1279,8 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--signal);
-  color: white;
+  background: var(--portfolio-coral);
+  color: var(--portfolio-navy);
   flex-shrink: 0;
   transition:
     transform 0.25s,
@@ -1274,6 +1294,7 @@
 .contactCircle:hover {
   transform: rotate(45deg);
   background: var(--ink);
+  color: var(--portfolio-ivory);
 }
 .contactLinks {
   display: flex;
@@ -1285,7 +1306,7 @@
   display: inline-flex;
   align-items: center;
   gap: 15px;
-  font-size: 12px;
+  font-size: 16px;
   border-bottom: 1px solid #bbbcb3;
   padding-bottom: 7px;
 }
@@ -1296,7 +1317,7 @@
   border-top: 1px solid #cecec5;
   padding-top: 24px;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 8px;
+  font-size: 12px;
   color: var(--quiet);
 }
 
@@ -1361,7 +1382,7 @@
   }
   .desktopNav {
     gap: 18px;
-    font-size: 11px;
+    font-size: 15px;
   }
   .headerContact {
     display: none;
@@ -1444,7 +1465,7 @@
     height: 68px;
   }
   .wordmark {
-    font-size: 9px;
+    font-size: 12px;
   }
   .mark {
     font-size: 36px;
@@ -1492,10 +1513,10 @@
     margin-bottom: 26px;
   }
   .introTop .eyebrow {
-    font-size: 9px;
+    font-size: 12px;
   }
   .availability {
-    font-size: 10px;
+    font-size: 13px;
   }
   .intro h1 {
     font-size: clamp(40px, 10vw, 70px);
@@ -1509,7 +1530,7 @@
     margin-top: 24px;
   }
   .introBottom > p {
-    font-size: 13px;
+    font-size: 17px;
     max-width: 360px;
   }
   .introActions {
@@ -1540,14 +1561,14 @@
     font-size: 67px;
   }
   .partner {
-    font-size: 10px;
+    font-size: 13px;
   }
   .featureSub {
     font-size: 18px;
     margin-top: 20px !important;
   }
   .featureSummary {
-    font-size: 12px;
+    font-size: 16px;
     max-width: 100%;
   }
   .tags {
@@ -1570,10 +1591,10 @@
     right: 20px;
   }
   .imageCaption {
-    font-size: 7px;
+    font-size: 11px;
   }
   .featureFoot {
-    font-size: 8px;
+    font-size: 12px;
   }
   .featureFoot span:last-child {
     display: none;
@@ -1608,7 +1629,7 @@
   }
   .caseContext p,
   .touchpoints p {
-    font-size: 12px;
+    font-size: 16px;
   }
   .touchpoints {
     grid-template-columns: 1fr;
@@ -1637,7 +1658,7 @@
     grid-column: 1 / -1;
   }
   .projectGallery figcaption {
-    font-size: 10px;
+    font-size: 13px;
     gap: 8px;
   }
   .projectGallery img {
@@ -1684,7 +1705,7 @@
   }
   .sectionHeading > p {
     max-width: 300px;
-    font-size: 12px;
+    font-size: 16px;
   }
   .methods {
     grid-template-columns: 1fr;
@@ -1696,7 +1717,7 @@
   }
   .methods p {
     margin-bottom: 20px;
-    font-size: 12px;
+    font-size: 16px;
   }
   .moreWork {
     padding: 70px 0;
@@ -1746,7 +1767,7 @@
   }
   .creatorIntro {
     max-width: 100%;
-    font-size: 12px;
+    font-size: 16px;
   }
   .creatorSummary {
     min-height: 250px;
@@ -1778,7 +1799,7 @@
     font-size: 34px;
   }
   .socialStats span {
-    font-size: 9px;
+    font-size: 12px;
   }
   .creatorChannels p {
     align-items: flex-start;
@@ -1793,7 +1814,7 @@
     aspect-ratio: 4 / 4.3;
   }
   .snapshot {
-    font-size: 8px;
+    font-size: 12px;
   }
   .rednote {
     flex-direction: column;
@@ -1821,7 +1842,7 @@
     margin-top: 22px;
   }
   .aboutText > p:not(.eyebrow) {
-    font-size: 13px;
+    font-size: 17px;
     margin: 22px 0;
   }
   .backgroundGrid {
@@ -1853,7 +1874,7 @@
     margin: 30px 0 44px;
   }
   .contactLinks a {
-    font-size: 11px;
+    font-size: 15px;
     gap: 10px;
   }
   .contactLinks a:first-child {
@@ -1862,7 +1883,7 @@
     flex-grow: 0;
   }
   .footerBottom {
-    font-size: 8px;
+    font-size: 12px;
     flex-wrap: wrap;
     gap: 14px;
   }

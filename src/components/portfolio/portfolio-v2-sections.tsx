@@ -1,7 +1,7 @@
 import Image from "next/image"
 import type { FocusedPortfolioContent, Locale } from "@/content/focused-portfolio"
 import { portfolioV2 } from "@/content/portfolio-v2"
-import { AfySalesChart } from "./afy-sales-chart"
+import { ExperienceTimeline } from "./experience-timeline"
 import styles from "./portfolio-v2.module.css"
 
 export function AboutSnapshot({ content }: { content: FocusedPortfolioContent }) {
@@ -96,60 +96,7 @@ export function AILiteracySection({ locale }: { locale: Locale }) {
 }
 
 export function ProfessionalJourney({ locale }: { locale: Locale }) {
-  const copy = portfolioV2[locale].journey
-
-  return (
-    <section id="journey" className={styles.journey} aria-labelledby="journey-title">
-      <div className={styles.sectionIntro}>
-        <div>
-          <p className={styles.kicker}>{copy.label}</p>
-          <h2 id="journey-title">{copy.title}</h2>
-        </div>
-        <p>{copy.intro}</p>
-      </div>
-
-      <div className={styles.timeline}>
-        {copy.items.map((item, index) => (
-          <article className={`${styles.journeyItem} ${styles[item.key]}`} key={item.key}>
-            <div className={styles.timelineIndex} aria-hidden="true">
-              <span>0{index + 1}</span><i />
-            </div>
-            <div className={styles.journeyContent}>
-              <header>
-                <p>{item.dates}</p>
-                <h3>{item.role}</h3>
-                <h4>{item.organisation}</h4>
-              </header>
-
-              {item.key === "museum" && (
-                <div className={styles.journeyImages}>
-                  <figure className={styles.stageImage}>
-                    <Image src="/portfolio/images/journey/science-stage.jpg" alt={copy.imageAlts.stage} width={1800} height={1012} sizes="(max-width: 700px) 92vw, 60vw" />
-                  </figure>
-                  <figure>
-                    <Image src="/portfolio/images/journey/science-museum-guidance.jpg" alt={copy.imageAlts.museum} width={1800} height={1203} sizes="(max-width: 700px) 92vw, 30vw" />
-                  </figure>
-                </div>
-              )}
-
-              <div className={styles.journeyStory}>
-                <div><span>{copy.challenge}</span><p>{item.challenge}</p></div>
-                <div><span>{copy.actions}</span><p>{item.actions}</p></div>
-                <div><span>{copy.outcome}</span><p>{item.outcome}</p></div>
-              </div>
-
-              {item.key === "afy" && <AfySalesChart locale={locale} copy={copy.chart} />}
-
-              <div className={styles.skillRow}>
-                <span>{copy.skills}</span>
-                <ul>{item.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  )
+  return <ExperienceTimeline locale={locale} />
 }
 
 export function EducationSummary({ content }: { content: FocusedPortfolioContent }) {

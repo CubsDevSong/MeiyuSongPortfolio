@@ -121,8 +121,8 @@ export function AfySalesChart({ locale, copy }: { locale: Locale; copy: ChartCop
         >
           <defs>
             <linearGradient id={gradientId} x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#1f67c6" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#1f67c6" stopOpacity="0" />
+              <stop offset="0%" stopColor="#efa8a0" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#efa8a0" stopOpacity="0" />
             </linearGradient>
           </defs>
 
