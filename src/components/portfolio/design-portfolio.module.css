@@ -1580,12 +1580,15 @@
     margin-bottom: 17px;
   }
   .featureVisual {
-    height: 420px;
+    flex: none;
+    height: auto;
+    aspect-ratio: 5 / 6;
+    overflow: hidden;
   }
   .kioskCrop {
     width: 63%;
     right: 5%;
-    bottom: 35px;
+    bottom: 8%;
   }
   .mobileCompanion {
     width: 41%;

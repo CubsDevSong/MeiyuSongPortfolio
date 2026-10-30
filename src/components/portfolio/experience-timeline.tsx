@@ -39,7 +39,15 @@ function SalesDetails({ locale }: { locale: Locale }) {
 
 function ExperienceMedia({ entry, locale }: { entry: string; locale: Locale }) {
   const zh = locale === "zh"
-  const photos = entry === "afy" ? [{
+  const photos = entry === "jianglan" ? [{
+    file: "jianglan-presentation.jpg", width: 1448, height: 1086,
+    alt: zh ? "宋美玉在笔记本电脑和大屏幕旁展示蒋蓝能源网站设计" : "Meiyu Song presenting the Jianglan website design on a laptop and large screen",
+    caption: zh ? "蒋蓝能源 · 网站设计展示" : "Jianglan Bio-Energy · Website design presentation",
+  }, {
+    file: "jianglan-workspace.jpg", width: 1800, height: 2400,
+    alt: zh ? "放有笔记本电脑和中国、爱尔兰桌旗的工作空间" : "Workspace with a laptop and Chinese and Irish desk flags",
+    caption: zh ? "实习工作空间 · 中国与爱尔兰的连接" : "Internship workspace · Connecting China and Ireland",
+  }] : entry === "afy" ? [{
     file: `afy-profile-${locale}.jpg`, width: 1672, height: 941,
     alt: zh ? "宋美玉的 AFY 教育咨询个人介绍海报，包含服务介绍与联系二维码" : "Meiyu Song’s AFY education consulting profile with service information and contact QR code",
     caption: zh ? "AFY 教育咨询 · 个性化规划与客户沟通" : "AFY education consulting · Personalised planning and client communication",
