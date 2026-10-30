@@ -1,0 +1,85 @@
+name: Validate and merge into main
+
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch:
+
+# Only the final publishing step receives the write token.
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-main-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-and-merge:
+    if: github.ref_type == 'branch' && github.ref_name != 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source branch
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Prepare merge with current main
+        id: candidate
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          if git merge-base --is-ancestor "$SOURCE_SHA" origin/main; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            echo "This commit is already on main." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name "$(git show -s --format=%an "$SOURCE_SHA")"
+          git config user.email "$(git show -s --format=%ae "$SOURCE_SHA")"
+          git switch --create validated-main origin/main
+          git merge --no-ff --no-commit "$SOURCE_SHA"
+          echo "needed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node.js
+        if: steps.candidate.outputs.needed == 'true'
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.candidate.outputs.needed == 'true'
+        run: npm ci
+
+      - name: Lint
+        if: steps.candidate.outputs.needed == 'true'
+        run: npm run lint -- --max-warnings=0
+
+      - name: Type check
+        if: steps.candidate.outputs.needed == 'true'
+        run: npx tsc --noEmit
+
+      - name: Production build
+        if: steps.candidate.outputs.needed == 'true'
+        run: npm run vercel-build
+
+      - name: Publish validated merge
+        if: steps.candidate.outputs.needed == 'true'
+        env:
+          PUSH_TOKEN: ${{ github.token }}
+          SOURCE_BRANCH: ${{ github.ref_name }}
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          set -euo pipefail
+          # Keep the source author for Vercel's Git author attribution.
+          git commit -m "Merge ${SOURCE_BRANCH} into main after validation"
+          auth=$(printf 'x-access-token:%s' "$PUSH_TOKEN" | base64 -w0)
+          # A regular push rejects concurrent main updates; never force-push.
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:main
+          echo "Merged source commit ${SOURCE_SHA} into main. Vercel will deploy the update." >> "$GITHUB_STEP_SUMMARY"
