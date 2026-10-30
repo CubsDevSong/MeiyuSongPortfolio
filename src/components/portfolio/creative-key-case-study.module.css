@@ -122,3 +122,4 @@
   .page * { scroll-behavior: auto !important; }
 }
 
+.projectName { margin: 18px 0 0; font-size: clamp(16px, 2vw, 21px); line-height: 1.6; color: var(--portfolio-muted); }

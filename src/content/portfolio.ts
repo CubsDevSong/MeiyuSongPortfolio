@@ -270,11 +270,11 @@ export const portfolio: PortfolioContent = {
   ],
   experience: [
     {
-      role: "UX / Website Redesign Intern",
+      role: "UX Design Intern",
       organization: "Jianglan Bio-Energy Europe Ltd.",
       tabLabel: "Jianglan",
       location: "Dublin, Ireland",
-      dates: "2026 - Present",
+      dates: "Jan 2026 – Jun 2026",
       summary:
         "Supporting a trust, clarity, and communication redesign for a B2B sustainability website focused on used cooking oil recycling, sustainable aviation fuel supply chains, certification, and international stakeholder communication.",
       achievements: [

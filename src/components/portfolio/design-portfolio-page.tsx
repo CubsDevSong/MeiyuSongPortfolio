@@ -138,7 +138,7 @@ export function DesignPortfolioPage({ content }: { content: FocusedPortfolioCont
           </div>
           <div className={styles.contactLinks}>
             {content.contactLinks.map((link) => (
-              <a key={link.href} href={link.href} download={link.kind === "download" || undefined} target={link.kind === "external" ? "_blank" : undefined} rel={link.kind === "external" ? "noreferrer" : undefined}>
+              <a key={link.href} href={link.href} download={link.kind === "download" || undefined} target={link.kind === "external" ? "_blank" : undefined} rel={link.kind === "external" ? "noopener noreferrer" : undefined} aria-label={link.kind === "external" ? `${link.label} — ${content.locale === "zh" ? "在新标签页打开" : "opens in a new tab"}` : undefined}>
                 {link.kind === "email" ? "songmeiyu033@gmail.com" : link.label}<ArrowUpRight size={16} aria-hidden="true" />
               </a>
             ))}

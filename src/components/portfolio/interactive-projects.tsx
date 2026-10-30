@@ -60,15 +60,16 @@ function ProjectModal({ project, source, locale }: { project: SupportingProject;
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.overlay} />
-        <Dialog.Content className={styles.modal} aria-describedby={`project-${project.id}-description`}>
+        <Dialog.Content className={styles.modal}>
           <div className={styles.modalTop}><span>{locale === "zh" ? "项目详情" : "PROJECT NOTES"} / {project.title}</span><Dialog.Close className={styles.close} aria-label={copy.close}><X size={22} aria-hidden="true" /></Dialog.Close></div>
           <div className={styles.modalBody}>
             <div className={styles.modalHero} data-project={project.id}><Image src={visual.src} alt={visual.alt} width={visual.width} height={visual.height} sizes="(max-width: 767px) 100vw, 85vw" /></div>
             <header className={styles.modalHeader}>
               <p className={styles.label}>{project.category}</p>
-              <Dialog.Title className={styles.modalTitle}>{project.title}</Dialog.Title>
-              <Dialog.Description id={`project-${project.id}-description`} className={styles.modalDescription}>{project.headline}</Dialog.Description>
+              <Dialog.Title className={styles.modalTitle}>{project.id === "global-study" ? "Global Study Hub (Immigration Cheat Sheets)" : project.title}</Dialog.Title>
+              <Dialog.Description className={styles.modalDescription}>{project.headline}</Dialog.Description>
               <div className={styles.role}><span>{copy.role}</span><p>{project.role}</p></div>
+              {project.id === "jianglan" && <p className={styles.archive}><a href="https://www.jl-bioenergy.com/#/home" target="_blank" rel="noopener noreferrer">{locale === "zh" ? "网站已上线 · 查看官网" : "Website now live · Visit website"}<ArrowUpRight size={16} aria-hidden="true" /></a></p>}
               {project.archive && <p className={styles.archive}>{copy.archive}: {project.archive}</p>}
             </header>
             {project.id === "jianglan" && <JianglanDesignGallery locale={locale} />}

@@ -1309,7 +1309,12 @@
   font-size: 16px;
   border-bottom: 1px solid #bbbcb3;
   padding-bottom: 7px;
+  min-height: 44px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
+.contactLinks a svg { flex-shrink: 0; }
+.contactLinks a:hover { border-bottom-color: currentColor; }
 .footerBottom {
   display: flex;
   justify-content: space-between;

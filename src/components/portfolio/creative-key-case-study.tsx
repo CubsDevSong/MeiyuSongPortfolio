@@ -27,6 +27,7 @@ export function CreativeKeyCaseStudy({ locale }: { locale: Locale }) {
         <section className={styles.hero}>
           <p className={styles.eyebrow}>{copy.eyebrow}</p>
           <h1>{copy.title}<span>.</span></h1>
+          <p className={styles.projectName}>{copy.projectName}</p>
           <p className={styles.heroSummary}>{copy.summary}</p>
           <div className={styles.meta}>{copy.meta.map((item) => <span key={item}>{item}</span>)}</div>
           <div className={styles.heroVisual}>
