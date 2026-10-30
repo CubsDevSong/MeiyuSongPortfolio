@@ -250,6 +250,17 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         href: "/portfolio/docs/meiyu-song-cv.pdf",
         kind: "download",
       },
+      {
+        label: "Douyin",
+        href: "https://www.douyin.com/user/MS4wLjABAAAAo9dpeGt_jYrmbUo6kNDz0FVXO8Abq1AGzcIhhhvBZ-8",
+        kind: "external",
+      },
+      {
+        label: "Xiaohongshu",
+        href: "https://www.xiaohongshu.com/user/profile/5ba9dec073da1f0001e40e4f?xsec_token=YBiBpbI37uBsF493O6wPzBvmWD_2DaWDiqBwKjhSF9FI8=&xsec_source=app_share&xhsshare=CopyLink&shareRedId=N0hDOUdKRzk9OklDOk4wNjY0Tjs0SjpP&apptime=1793274906&share_id=644ed85279e94e6ebe0e87071dab1ef0",
+        kind: "external",
+      },
+
     ],
     capabilities: [
       {
@@ -316,6 +327,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
           "UCO / SAF / supply-chain communication",
         ],
         links: [
+          { label: "View live website", href: "https://www.jl-bioenergy.com/#/home" },
           {
             label: "View screens",
             href: "/portfolio/images/jianglan-redesign.jpg",
@@ -329,7 +341,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
       {
         title:
           "Designing a Decision-Support Platform for International Students",
-        subtitle: "Immigration Cheat Sheets",
+        subtitle: "Global Study Hub (Immigration Cheat Sheets)",
         description:
           "A 13-week UX research and product design project helping international students compare countries, universities and local areas through clearer, more trustworthy information.",
         problem:
@@ -348,7 +360,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
           "International Students",
         ],
         evidence: [
-          "9 user interviews",
+          "Team academic project · 2025",
           "Personas + requirements",
           "Quiz / Plan / Explore prototype",
           "Evaluation + reflection",
@@ -360,7 +372,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
       },
       {
         title: "Human-Centred AI Companionship for Older Adults",
-        subtitle: "AI Companion Robots Research + A Day with ElliQ",
+        subtitle: "A Day with ElliQ",
         description:
           "A human-centred AI project combining qualitative HCI research on older adults' loneliness with an interactive storytelling prototype about ElliQ, exploring how AI companions may support, complicate, or reshape emotional connection in later life.",
         problem:
@@ -418,10 +430,10 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     experience: [
       {
         tabLabel: "Jianglan",
-        role: "UX / Website Redesign Intern",
+        role: "UX Design Intern",
         organization: "Jianglan Bio-Energy Europe Ltd.",
         location: "Dublin, Ireland",
-        dates: "2026 - Present",
+        dates: "Jan 2026 – Jun 2026",
         summary:
           "Supporting a trust, clarity, and communication redesign for a B2B sustainability website focused on used cooking oil recycling, sustainable aviation fuel supply chains, certification, and international stakeholder communication.",
         highlights: [
@@ -445,7 +457,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         summary:
           "Provided study-abroad consultation, education planning, service matching, customer relationship management, and education event operations.",
         highlights: [
-          "Generated RMB 2.59M in cumulative signed sales during the Sep 2023–Aug 2024 reporting period and became a monthly sales champion within four months of joining.",
+          "Generated approximately RMB 2.6 million in personal signed sales (around €350,000) during Sep 2023–Aug 2024; received the Annual Best Service Star award.",
           "Identified user needs through one-to-one consultations and matched students with suitable education services, tutors, and learning pathways.",
           "Managed customer relationships across the full service journey from initial consultation to conversion, follow-up, referral, and repeat purchase.",
           "Planned and hosted large-scale education branding events, including an overseas study fan meeting.",
@@ -716,6 +728,17 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         href: "/portfolio/docs/meiyu-song-cv.pdf",
         kind: "download",
       },
+      {
+        label: "抖音",
+        href: "https://www.douyin.com/user/MS4wLjABAAAAo9dpeGt_jYrmbUo6kNDz0FVXO8Abq1AGzcIhhhvBZ-8",
+        kind: "external",
+      },
+      {
+        label: "小红书",
+        href: "https://www.xiaohongshu.com/user/profile/5ba9dec073da1f0001e40e4f?xsec_token=YBiBpbI37uBsF493O6wPzBvmWD_2DaWDiqBwKjhSF9FI8=&xsec_source=app_share&xhsshare=CopyLink&shareRedId=N0hDOUdKRzk9OklDOk4wNjY0Tjs0SjpP&apptime=1793274906&share_id=644ed85279e94e6ebe0e87071dab1ef0",
+        kind: "external",
+      },
+
     ],
     capabilities: [
       {
@@ -781,6 +804,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
           "UCO / SAF / 供应链沟通",
         ],
         links: [
+          { label: "查看已上线官网", href: "https://www.jl-bioenergy.com/#/home" },
           {
             label: "查看页面",
             href: "/portfolio/images/jianglan-redesign.jpg",
@@ -793,7 +817,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
       },
       {
         title: "为国际学生设计决策支持平台",
-        subtitle: "Immigration Cheat Sheets",
+        subtitle: "Global Study Hub (Immigration Cheat Sheets)",
         description:
           "一个为期 13 周的 UX 研究与产品设计项目，帮助国际学生通过更清晰、更可信的信息比较国家、大学和本地环境。",
         problem:
@@ -812,7 +836,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
           "国际学生",
         ],
         evidence: [
-          "9 次用户访谈",
+          "团队学术项目 · 2025",
           "人物画像 + 需求",
           "Quiz / Plan / Explore 原型",
           "评估 + 反思",
@@ -824,7 +848,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
       },
       {
         title: "面向老年人的人本 AI 陪伴",
-        subtitle: "AI 陪伴机器人研究 + A Day with ElliQ",
+        subtitle: "A Day with ElliQ",
         description:
           "一个人本 AI 项目，将关于老年人孤独感的定性 HCI 研究，与围绕 ElliQ 的互动叙事原型结合起来，探索 AI 陪伴如何支持、复杂化或重塑晚年生活中的情感连接。",
         problem:
@@ -882,10 +906,10 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
     experience: [
       {
         tabLabel: "Jianglan",
-        role: "UX / 网站改版实习生",
+        role: "UX 设计实习生",
         organization: "Jianglan Bio-Energy Europe Ltd.",
         location: "爱尔兰都柏林",
-        dates: "2026 年至今",
+        dates: "2026 年 1 月 – 6 月",
         summary:
           "参与 B2B 可持续发展网站的信任、清晰度与沟通改版，内容聚焦废弃食用油回收、可持续航空燃料供应链、认证与国际利益相关方沟通。",
         highlights: [
@@ -904,7 +928,7 @@ export const focusedPortfolioContent: Record<Locale, FocusedPortfolioContent> = 
         summary:
           "提供留学咨询、教育规划、服务匹配、客户关系管理和教育活动运营支持。",
         highlights: [
-          "在 2023 年 9 月至 2024 年 8 月统计周期内，实现 259 万元累计签约业绩，并在入职四个月内成为月度销冠。",
+          "2023 年 9 月至 2024 年 8 月，个人签约销售额约人民币 260 万元，折合约 35 万欧元；获年度优秀服务之星。",
           "通过一对一咨询识别用户需求，并为学生匹配合适的教育服务、导师和学习路径。",
           "管理从初次咨询到转化、跟进、转介绍和复购的完整客户旅程。",
           "策划并主持大型教育品牌活动，包括海外学习粉丝见面会。",

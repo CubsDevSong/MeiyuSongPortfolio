@@ -23,7 +23,7 @@ export const designPortfolio = {
     projectTags: ["Service design", "Interaction design", "HCI"],
     explore: "Explore the case study",
     partner: "UCD × Creative Futures Academy",
-    prototype: "Collaborative HCI project · Prototype",
+    prototype: "Team academic HCI project · Prototype",
     caseLabel: "The thinking behind the experience",
     caseTitle: "From curiosity to\ncreative confidence.",
     challenge: "The challenge",
@@ -168,7 +168,7 @@ export const designPortfolio = {
       "Three real contexts shaped how I understand value: client decisions, public participation and audience response.",
     proofs: [
       {
-        value: "RMB 2.59M",
+        value: "≈ RMB 2.6M",
         title: "Commercial thinking",
         text: "Cumulative signed sales across a 12-month reporting period in education consulting—built through needs diagnosis, clear service matching and follow-through.",
         skill: "Customer insight · Business value · Communication",
@@ -253,7 +253,7 @@ export const designPortfolio = {
     projectTags: ["服务设计", "交互设计", "人机交互"],
     explore: "探索项目案例",
     partner: "UCD × Creative Futures Academy",
-    prototype: "HCI 团队项目 · 原型阶段",
+    prototype: "HCI 团队学术项目 · 原型阶段",
     caseLabel: "体验背后的设计思考",
     caseTitle: "从好奇，\n到自信地开始创作。",
     challenge: "设计挑战",
@@ -396,7 +396,7 @@ export const designPortfolio = {
     proofIntro: "三段真实经历，让我学会从客户决策、公众参与与受众反馈中理解价值。",
     proofs: [
       {
-        value: "259 万元",
+        value: "约260万元",
         title: "商业思维",
         text: "在12个月统计周期内实现累计签约业绩，来自需求诊断、清晰的服务匹配与持续跟进。",
         skill: "客户洞察 · 商业价值 · 沟通",
